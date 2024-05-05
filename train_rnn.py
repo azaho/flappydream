@@ -82,9 +82,14 @@ def load_data(filename_vae_latents, filename_environment_vars, batch_size=512, t
     return n_batches, mean_batches, var_batches, state_vars_batches, action_batches, mask_batches, end_flag_batches
 
 
-def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, verbose=False, rnn_id=0, note_every_epochs=10, save_folder="data", detach_gradients=True, max_gradient_norm=None):
+def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, verbose=False, rnn_id=0,
+              note_every_epochs=10, save_folder="data", detach_gradients=True, max_gradient_norm=None,
+              lambda_ef=10, multiplier_ef=10, lambda_sv=10):
     """
         Trains the RNN
+
+        multiplier_ef is the multiplier of the readout value (e.g. error flag = 10 instead of =1).
+        Helps the network output larger values when it thinks the game is getting over.
     """
     n_batches, mean_batches, var_batches, state_vars_batches, \
         action_batches, mask_batches, end_flag_batches = training_data
@@ -140,9 +145,10 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
                 (pi, mu, sigma), ef, hidden, y = model(inputs, hidden)
 
                 loss_mdn = loss_pred(targets, pi, mu, sigma, masks)
-                loss_ef = loss_errorflag(targets, ef, masks) * 10
+                loss_ef = loss_errorflag(targets, ef, masks, multiplier_ef) * lambda_ef
                 if model.n_state_vars > 0:
-                    loss_sv = loss_statevars(state_vars[:, :, model.state_vars_to_predict], model.get_decoded_state_vars(y), masks) * 10
+                    loss_sv = loss_statevars(state_vars[:, :, model.state_vars_to_predict],
+                                             model.get_decoded_state_vars(y), masks) * lambda_sv
                 else:
                     loss_sv = torch.tensor(0)
                 loss = loss_mdn + loss_ef + loss_sv
@@ -224,18 +230,51 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Train MDNRNN model')
-    parser.add_argument('--truncate_at_batch', type=int, default=2, help='Number of batches to truncate the data')
-    parser.add_argument('--rnn_id', type=str, default="0", help='String ID of the RNN model')
+    parser.add_argument('--truncate_at_batch', '-t', type=int, default=40, help='Number of batches to truncate the data')
+    parser.add_argument('--state_vars_to_predict', '-sv', type=int, nargs='+', default=[],
+                        help='List of state variables to predict')
+    parser.add_argument('--detach_gradients', '-dg', action='store_true', help='Whether to detach gradients')
+    parser.add_argument('--use_layernorm', '-ln', action='store_true', help='Whether to use layer normalization')
+    parser.add_argument('--n_hidden', '-nh', type=int, default=128, help='Number of hidden units in the RNN')
+    parser.add_argument('--dim_latent_z', '-dlz', type=int, default=8, help='Dimensionality of the latent observation space of the VAE')
+    parser.add_argument('--train_epochs', '-e', type=int, default=250, help='Number of training epochs')
+    parser.add_argument('--save_every_epochs', '-se', type=int, default=50,
+                        help='Save the model every specified number of epochs')
+    parser.add_argument('--max_gradient_norm', '-mgn', type=float, default=100.0,
+                        help='Maximum gradient norm for gradient clipping')
+    parser.add_argument('--lr', '-lr', type=float, default=0.001, help='Learning rate')
+    parser.add_argument('--random_index', '-r', type=int, default=0, help='Random seed index')
+    parser.add_argument('--lambda_sv', '-lsv', type=float, default=10.0, help='Lambda value for state variables')
+
     args = parser.parse_args()
+    state_vars_to_predict = args.state_vars_to_predict
+    detach_gradients = args.detach_gradients
+    use_layernorm = args.use_layernorm
+    truncate_at_batch = args.truncate_at_batch
+    n_hidden = args.n_hidden
+    train_epochs = args.train_epochs
+    save_every_epochs = args.save_every_epochs
+    max_gradient_norm = args.max_gradient_norm
+    lr = args.lr
+    random_index = args.random_index
+    lambda_sv = args.lambda_sv
+    dim_latent_z = args.dim_latent_z
 
     print(f"Using {config.device}")
+    sv_str = 'x'.join([str(x) for x in state_vars_to_predict]) if len(state_vars_to_predict)>0 else 'X'
+    rnn_id = f"_ln{1 if use_layernorm else 0}_nh{n_hidden}_dlz{dim_latent_z}_mgn{max_gradient_norm}_lr{lr}" + \
+             f"_dg{1 if detach_gradients else 0}_da{truncate_at_batch}_sv{sv_str}_lsv{lambda_sv}_r{random_index}"
+    print("ID: " + rnn_id)
 
-    # step 1: load data
     dim_latent_z = config.vae_latent_dim
-    training_data = load_data(f'data/vae_preprocessed_{dim_latent_z}dimlatent.npz', f'data/vae_rollouts_env_vars.npz', truncate_at_batch=args.truncate_at_batch)
+    training_data = load_data(f'data/vae_preprocessed_{dim_latent_z}dimlatent.npz',
+                              f'data/vae_rollouts_env_vars.npz',
+                              truncate_at_batch=truncate_at_batch, batch_size=256)
 
     # step 2: define the model and parameters
-    model = MDNRNN(dim_latent_z, state_vars_to_predict=[]).to(config.device)
-    optimizer = torch.optim.Adam(model.parameters())  # , lr=0.001, weight_decay=0.001)
+    model = MDNRNN(dim_latent_z, use_layernorm=use_layernorm, state_vars_to_predict=state_vars_to_predict,
+                   n_hidden=n_hidden).to(config.device)
+    optimizer = torch.optim.Adam(model.parameters(), lr=lr)
 
-    train_rnn(model, training_data, 10, optimizer, save_every_epochs=1, note_every_epochs=1, verbose=True, rnn_id=args.rnn_id)
+    train_rnn(model, training_data, train_epochs, optimizer, save_every_epochs=save_every_epochs, verbose=True,
+              save_folder="data", rnn_id=rnn_id, max_gradient_norm=max_gradient_norm, lambda_sv=lambda_sv)

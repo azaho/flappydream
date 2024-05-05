@@ -66,12 +66,13 @@ def loss_pred(y_target, pi, mu, sigma, masks):
     loss = torch.sum(loss * pi.unsqueeze(3), dim=2)
     loss = -torch.log(loss) * masks[:, :, None]
     return loss.sum() / masks.sum()
-def loss_errorflag(y_target, ef, masks):
+def loss_errorflag(y_target, ef, masks, multiplier_ef=1):
     """
         Loss associated with predicting the end flag (whether the game terminated)
     """
     y_target = y_target[:, :, -1:]  # only leave the "end flag" part of the target output
-    return ((y_target[:, :, -1:]-ef)**2 * masks[:, :, None]).sum() / masks.sum()
+    multiplier_mask = torch.where(y_target>0, multiplier_ef, 0)
+    return ((y_target[:, :, -1:]-ef)**2 * masks[:, :, None] * multiplier_mask).sum() / masks.sum()
 def loss_statevars(state_vars_true, state_vars_pred, masks):
     """
         Loss associated with predicting the state variables of interest (optional)

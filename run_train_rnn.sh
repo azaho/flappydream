@@ -1,9 +1,9 @@
 #!/bin/bash
 #SBATCH -n 1                # node count
-#SBATCH --mem-per-cpu=1G         # memory per cpu-core (4G is default)
+#SBATCH --mem-per-cpu=12G         # memory per cpu-core (4G is default)
 #SBATCH -t 02:00:00          # total run time limit (HH:MM:SS)
-#SBATCH --array=0-239
-#SBATCH --output /om2/user/zaho/ccn_story3/reports/slurm-%A_%a.out # STDOUT
+#SBATCH --array=0-4
+#SBATCH --output /om2/user/zaho/flappydream/reports/slurm-%A_%a.out # STDOUT
 #SBATCH -p yanglab
 export PATH="/om2/user/zaho/anaconda3/bin:$PATH"
 
