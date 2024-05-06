@@ -109,7 +109,7 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
     logging.basicConfig(level=logging.INFO,
                         format='%(asctime)s - %(message)s',
                         handlers=[
-                            logging.FileHandler(f"{save_folder}/rnn{rnn_id}/training_{timestamp}.log"),
+                            logging.FileHandler(f"{save_folder}/rnn{rnn_id}/training.log"),
                             logging.StreamHandler()
                         ])
     logging.info(f"Using {config.device}")
