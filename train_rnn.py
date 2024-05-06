@@ -261,7 +261,7 @@ if __name__ == "__main__":
     parser.add_argument('--lr', '-lr', type=float, default=0.001, help='Learning rate')
     parser.add_argument('--random_index', '-r', type=int, default=0, help='Random seed index')
     parser.add_argument('--lambda_sv', '-lsv', type=float, default=10.0, help='Lambda value for state variables')
-    parser.add_argument('--enforce_cuda', '-ecuda', type=float, default=10.0, help='Exit if cuda is not available')
+    parser.add_argument('--enforce_cuda', '-ecuda', action='store_true', help='Exit if cuda is not available')
 
     args = parser.parse_args()
     state_vars_to_predict = args.state_vars_to_predict
