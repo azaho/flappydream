@@ -261,6 +261,7 @@ if __name__ == "__main__":
     parser.add_argument('--lr', '-lr', type=float, default=0.001, help='Learning rate')
     parser.add_argument('--random_index', '-r', type=int, default=0, help='Random seed index')
     parser.add_argument('--lambda_sv', '-lsv', type=float, default=10.0, help='Lambda value for state variables')
+    parser.add_argument('--enforce_cuda', '-ecuda', type=float, default=10.0, help='Exit if cuda is not available')
 
     args = parser.parse_args()
     state_vars_to_predict = args.state_vars_to_predict
@@ -276,6 +277,10 @@ if __name__ == "__main__":
     lambda_sv = args.lambda_sv
     dim_latent_z = args.dim_latent_z
     if lambda_sv == 0: state_vars_to_predict = []
+
+    if args.enforce_cuda and not torch.cuda.is_available():
+        print("CUDA NOT AVAILABLE! Exiting.")
+        exit()
 
     sv_str = 'x'.join([str(x) for x in state_vars_to_predict]) if len(state_vars_to_predict)>0 else 'X'
     rnn_id = f"_ln{1 if use_layernorm else 0}_nh{n_hidden}_dlz{dim_latent_z}_mgn{max_gradient_norm}_lr{lr}" + \
