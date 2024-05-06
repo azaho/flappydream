@@ -17,4 +17,4 @@ B=${arrB[$B]}
 
 echo $A $B
 nvidia-smi
-python train_rnn.py -t 40 -lr 0.001 -ln -lsv $A -sv 9 10 11 -r $B
+python train_rnn.py -ecuda -t 40 -lr 0.001 -ln -lsv $A -sv 9 10 11 -r $B
