@@ -175,7 +175,7 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
                 optimizer.step()
 
             except Exception as e:
-                logging.info(f"Exception occurred at epoch {epoch+1}, batch {batch_i+1}.")#. {str(e)}")
+                logging.info(f"Exception occurred at epoch {epoch+1}, batch {batch_i+1}. {str(e)}")
                 logging.info("Restoring model from the last known good checkpoint.")
                 exceptions.append((epoch+1, batch_i+1))
 
