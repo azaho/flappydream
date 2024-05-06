@@ -192,7 +192,7 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
                 epoch_states.pop(-1)
                 checkpoint = epoch_states[-1]
 
-                epoch = checkpoint.epoch+1
+                epoch = checkpoint['epoch']+1
                 model.load_state_dict(checkpoint['model_state_dict'])
                 optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
 
