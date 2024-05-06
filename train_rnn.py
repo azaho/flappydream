@@ -85,7 +85,7 @@ def load_data(filename_vae_latents, filename_environment_vars, batch_size=512, t
 
 
 def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, verbose=False, rnn_id=0,
-              note_every_epochs=10, save_folder="data", detach_gradients=True, max_gradient_norm=None,
+              note_every_epochs=5, save_folder="data", detach_gradients=True, max_gradient_norm=None,
               lambda_ef=10, multiplier_ef=1, lambda_sv=10):
     """
         Trains the RNN
@@ -230,6 +230,7 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
             logging.info('Epoch [{}/{}], Loss: {:.4f} ({:.4f}, {:.4f}, {:.4f})'
                   .format(epoch+1, n_epochs, loss.item(), loss_mdn.item(), loss_ef.item(), loss_sv.item()))
             logging.info('     ETA: {:0>2}:{:0>2}:{:05.2f}'.format(int(hours), int(minutes), seconds))
+            np.savez_compressed(f"{save_folder}/rnn{rnn_id}/rnn_losses.npz", losses_store=losses_store) # save losses more often
         if (epoch+1) % save_every_epochs == 0 or (epoch+1)==n_epochs:
             torch.save(model.state_dict(), f"{save_folder}/rnn{rnn_id}/rnn_model_epoch{epoch+1}.pt")
             torch.save(optimizer.state_dict(), f"{save_folder}/rnn{rnn_id}/rnn_optimizer_epoch{epoch+1}.pt")
