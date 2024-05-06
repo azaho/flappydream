@@ -36,7 +36,7 @@ def load_data(filename_vae_latents, filename_environment_vars, batch_size=512, t
     num_episodes = (end_flag_store).sum().item()
     # Initialize empty lists to store the batches
     mean_batches = []
-    var_batches = []
+    sigma_batches = []
     state_vars_batches = []
     action_batches = []
     end_flag_batches = []
