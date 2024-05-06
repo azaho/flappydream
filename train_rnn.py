@@ -99,8 +99,7 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
     gradient_norms_store = np.zeros((n_epochs, n_batches, 1))
     gradient_norms_store[:] = np.nan
 
-    # Configure logging
-    print(f"Using {config.device}") # TODO: fix logger
+    # Make dirs if they are missing
     Path(f"{save_folder}/rnn{rnn_id}/").mkdir(parents=True, exist_ok=True)
 
     # Check for the last saved epoch
@@ -259,6 +258,7 @@ if __name__ == "__main__":
     random_index = args.random_index
     lambda_sv = args.lambda_sv
     dim_latent_z = args.dim_latent_z
+    if lambda_sv == 0: state_vars_to_predict = []
 
     print(f"Using {config.device}")
     sv_str = 'x'.join([str(x) for x in state_vars_to_predict]) if len(state_vars_to_predict)>0 else 'X'
@@ -266,7 +266,6 @@ if __name__ == "__main__":
              f"_dg{1 if detach_gradients else 0}_da{truncate_at_batch}_sv{sv_str}_lsv{lambda_sv}_r{random_index}"
     print("ID: " + rnn_id)
 
-    dim_latent_z = config.vae_latent_dim
     training_data = load_data(f'data/vae_preprocessed_{dim_latent_z}dimlatent.npz',
                               f'data/vae_rollouts_env_vars.npz',
                               truncate_at_batch=truncate_at_batch, batch_size=256)
@@ -277,4 +276,5 @@ if __name__ == "__main__":
     optimizer = torch.optim.Adam(model.parameters(), lr=lr)
 
     train_rnn(model, training_data, train_epochs, optimizer, save_every_epochs=save_every_epochs, verbose=True,
-              save_folder="data", rnn_id=rnn_id, max_gradient_norm=max_gradient_norm, lambda_sv=lambda_sv)
+              save_folder="data", rnn_id=rnn_id, max_gradient_norm=max_gradient_norm, lambda_sv=lambda_sv,
+              detach_gradients=detach_gradients)
