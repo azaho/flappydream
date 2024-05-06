@@ -27,7 +27,7 @@ def load_data(filename_vae_latents, filename_environment_vars, batch_size=512, t
     # Load data from files
     z = np.load(filename_vae_latents)
     mean_store = torch.tensor(z['mean'])
-    sigma_store = torch.tensor(z['sigma'])
+    sigma_store = torch.tensor(z['log_var'])
     env_meta = np.load(filename_environment_vars)
     state_vars = torch.tensor(env_meta['state_vars_store'])
     end_flag_store = torch.tensor(env_meta['end_flag_store'])
