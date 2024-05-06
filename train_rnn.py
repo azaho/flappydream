@@ -12,6 +12,8 @@ import time
 import argparse
 import collections
 import os
+import logging
+import datetime
 
 
 def load_data(filename_vae_latents, filename_environment_vars, batch_size=512, truncate_at_batch=None):
@@ -102,6 +104,16 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
     # Make dirs if they are missing
     Path(f"{save_folder}/rnn{rnn_id}/").mkdir(parents=True, exist_ok=True)
 
+    # Set up logging
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    logging.basicConfig(level=logging.INFO,
+                        format='%(asctime)s - %(message)s',
+                        handlers=[
+                            logging.FileHandler(f"{save_folder}/rnn{rnn_id}/training_{timestamp}.log"),
+                            logging.StreamHandler()
+                        ])
+    logging.info(f"Using {config.device}")
+
     # Check for the last saved epoch
     last_epoch = 0
     for file in os.listdir(f"{save_folder}/rnn{rnn_id}/"):
@@ -110,7 +122,7 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
             if epoch_num > last_epoch:
                 last_epoch = epoch_num
     if last_epoch > 0:
-        print(f"Resuming training from epoch {last_epoch}")
+        logging.info(f"Resuming training from epoch {last_epoch}")
         model.load_state_dict(torch.load(f"{save_folder}/rnn{rnn_id}/rnn_model_epoch{last_epoch}.pt"))
         optimizer.load_state_dict(torch.load(f"{save_folder}/rnn{rnn_id}/rnn_optimizer_epoch{last_epoch}.pt"))
         losses_store = np.load(f"{save_folder}/rnn{rnn_id}/rnn_losses.npz")["losses_store"]
@@ -163,8 +175,8 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
                 optimizer.step()
 
             except Exception as e:
-                print(f"Exception occurred at epoch {epoch+1}, batch {batch_i+1}: {str(e)}")
-                print("Restoring model from the last known good checkpoint.")
+                logging.info(f"Exception occurred at epoch {epoch+1}, batch {batch_i+1}: {str(e)}")
+                logging.info("Restoring model from the last known good checkpoint.")
                 exceptions.append((epoch+1, batch_i+1))
 
                 # Clear GPU memory
@@ -211,9 +223,9 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
             eta = elapsed_time / note_every_epochs * epochs_remaining
             hours, rem = divmod(eta, 3600)
             minutes, seconds = divmod(rem, 60)
-            print('Epoch [{}/{}], Loss: {:.4f} ({:.4f}, {:.4f}, {:.4f})'
+            logging.info('Epoch [{}/{}], Loss: {:.4f} ({:.4f}, {:.4f}, {:.4f})'
                   .format(epoch+1, n_epochs, loss.item(), loss_mdn.item(), loss_ef.item(), loss_sv.item()))
-            print('     ETA: {:0>2}:{:0>2}:{:05.2f}'.format(int(hours), int(minutes), seconds))
+            logging.info('     ETA: {:0>2}:{:0>2}:{:05.2f}'.format(int(hours), int(minutes), seconds))
         if (epoch+1) % save_every_epochs == 0 or (epoch+1)==n_epochs:
             torch.save(model.state_dict(), f"{save_folder}/rnn{rnn_id}/rnn_model_epoch{epoch+1}.pt")
             torch.save(optimizer.state_dict(), f"{save_folder}/rnn{rnn_id}/rnn_optimizer_epoch{epoch+1}.pt")
@@ -223,7 +235,7 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
                 json.dump({"state_vars_to_predict": model.state_vars_to_predict.tolist() if model.n_state_vars>0 else [],
                            "trained_epochs": n_epochs, "exceptions_log": exceptions
                            }, out_file, indent = 4)
-            print("== NETWORK SAVED\n")
+            logging.info("== NETWORK SAVED\n")
         epoch += 1
 
 
@@ -260,7 +272,6 @@ if __name__ == "__main__":
     dim_latent_z = args.dim_latent_z
     if lambda_sv == 0: state_vars_to_predict = []
 
-    print(f"Using {config.device}")
     sv_str = 'x'.join([str(x) for x in state_vars_to_predict]) if len(state_vars_to_predict)>0 else 'X'
     rnn_id = f"_ln{1 if use_layernorm else 0}_nh{n_hidden}_dlz{dim_latent_z}_mgn{max_gradient_norm}_lr{lr}" + \
              f"_dg{1 if detach_gradients else 0}_da{truncate_at_batch}_sv{sv_str}_lsv{lambda_sv}_r{random_index}"
