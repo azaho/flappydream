@@ -64,7 +64,7 @@ def reparameterization(mean, sigma):
 def loss_elbo(x, x_hat, mean, sigma):
     """
         SIKE! This is not elbo loss. Instead, it's
-        MSE + (mu^2 + sigma^2)/2
+        MSE + (mu^2 + sigma^2/2)/2
     """
     reproduction_loss = torch.sum((x_hat-x)**2)#nn.functional.binary_cross_entropy(x_hat, x, reduction='sum')
     #KLD = - 0.5 * torch.sum(1+ log_var - mean.pow(2) - log_var.exp())

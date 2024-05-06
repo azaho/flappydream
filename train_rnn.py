@@ -132,7 +132,7 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
     epoch_states = []
     exceptions = []
     epoch = last_epoch
-    restored=False
+    restored = False
     while epoch<n_epochs:
         # Set initial hidden and cell states
         for batch_i in range(n_batches):
@@ -189,7 +189,10 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
                 optimizer.load_state_dict(optimizer_state)
 
                 # Restore model and optimizer states
-                checkpoint = epoch_states[0]
+                epoch_states.pop(-1)
+                checkpoint = epoch_states[-1]
+
+                epoch = checkpoint.epoch+1
                 model.load_state_dict(checkpoint['model_state_dict'])
                 optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
 
@@ -207,13 +210,14 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
             continue
 
         # Save model and optimizer state every epoch
-        epoch_states.append({
-            'epoch': epoch,
-            'model_state_dict': copy.deepcopy(model.state_dict()),
-            'optimizer_state_dict': copy.deepcopy(optimizer.state_dict())
-        })
-        while len(epoch_states) > 20:
-            epoch_states.pop(0)
+        if (epoch+1) % 10 == 0:
+            epoch_states.append({
+                'epoch': epoch,
+                'model_state_dict': copy.deepcopy(model.state_dict()),
+                'optimizer_state_dict': copy.deepcopy(optimizer.state_dict())
+            })
+            while len(epoch_states) > 10:
+                epoch_states.pop(0)
 
         if ((epoch+1) % note_every_epochs == 0):
             epoch_end_time = time.time()
