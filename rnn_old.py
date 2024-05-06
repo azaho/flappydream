@@ -41,7 +41,7 @@ class MDNRNN(nn.Module):
         sigma = sigma.view(-1, rollout_length, self.n_gaussians, self.z_size)
 
         pi = F.softmax(pi, 2)
-        #sigma = torch.exp(sigma)
+        sigma = torch.exp(sigma)
         return pi, mu, sigma
     def get_decoded_state_vars(self, y):
         return self.fc5(y) if self.n_state_vars>0 else None
@@ -60,7 +60,7 @@ def loss_pred(y_target, pi, mu, sigma, masks):
         Loss associated with predicting the next latent state
     """
     y_target = y_target.unsqueeze(2)[:, :, :, :-1] # remove the "end flag" part of the target output # (batch_size, timesteps, 1, output)
-    m = torch.distributions.Normal(loc=mu, scale=torch.abs(sigma))
+    m = torch.distributions.Normal(loc=mu, scale=sigma)
     loss = torch.exp(m.log_prob(y_target))
     #print(loss.shape, pi.unsqueeze(3).shape)
     loss = torch.sum(loss * pi.unsqueeze(3), dim=2)

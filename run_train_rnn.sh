@@ -12,8 +12,9 @@ export PATH="/om2/user/zaho/anaconda3/bin:$PATH"
 A=$((SLURM_ARRAY_TASK_ID/5))
 B=$((SLURM_ARRAY_TASK_ID%5))
 arrA=("0" "5" "10" "20")
-arrB=(0 1 2 3 4)
+arrB=(5 6 7 8 9)
 A=${arrA[$A]}
+B=${arrB[$B]}
 
 echo $A $B
 python train_rnn.py -t 40 -lr 0.001 -ln -lsv $A -sv 9 10 11 -r $B

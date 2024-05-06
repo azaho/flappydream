@@ -1,7 +1,7 @@
 import torch
 import numpy as np
 import torch.nn as nn
-from vae import *
+from vae_old import *
 import config
 
 def load_data(filenames):
@@ -24,9 +24,9 @@ def save_processed_observations(model, lidar_store, save_filename):
     """
         Runs all rollout observations through the VAE, and saves the resulting latents
     """
-    lidar_store_hat, mean, sigma = model(lidar_store)
+    lidar_store_hat, mean, log_var = model(lidar_store)
     np.savez_compressed(save_filename, mean=mean.cpu().detach().numpy(),
-                        sigma=sigma.cpu().detach().numpy())
+                        log_var=log_var.cpu().detach().numpy())
 
 def save_processed_environmental_variables(filenames, save_filename):
     """
@@ -54,8 +54,8 @@ def train_vae(model, lidar_store_batches, optimizer, epochs, verbose=False):
         for batch_idx in range(n_batches):
             x = lidar_store_batches[batch_idx]
             optimizer.zero_grad()
-            x_hat, mean, sigma = model(x)
-            loss = loss_elbo(x, x_hat, mean, sigma)
+            x_hat, mean, log_var = model(x)
+            loss = loss_elbo(x, x_hat, mean, log_var)
             overall_loss += loss.item()
             loss.backward()
             optimizer.step()

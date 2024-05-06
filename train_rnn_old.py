@@ -4,7 +4,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import copy
 from rnn import *
-from vae_old import *
+from vae import *
 import config
 from pathlib import Path
 import json
@@ -27,7 +27,7 @@ def load_data(filename_vae_latents, filename_environment_vars, batch_size=512, t
     # Load data from files
     z = np.load(filename_vae_latents)
     mean_store = torch.tensor(z['mean'])
-    sigma_store = torch.tensor(z['sigma'])
+    var_store = torch.tensor(z['log_var'])
     env_meta = np.load(filename_environment_vars)
     state_vars = torch.tensor(env_meta['state_vars_store'])
     end_flag_store = torch.tensor(env_meta['end_flag_store'])
@@ -55,7 +55,7 @@ def load_data(filename_vae_latents, filename_environment_vars, batch_size=512, t
             max_episode_length = max(max_episode_length, episode_length.item())
         # Create empty tensors for the current batch
         mean_batch = torch.zeros((batch_size, max_episode_length, config.vae_latent_dim)).to(config.device)
-        sigma_batch = torch.zeros((batch_size, max_episode_length, config.vae_latent_dim)).to(config.device)
+        var_batch = torch.zeros((batch_size, max_episode_length, config.vae_latent_dim)).to(config.device)
         state_vars_batch = torch.zeros((batch_size, max_episode_length, 12)).to(config.device)
         action_batch = torch.zeros((batch_size, max_episode_length, 1)).to(config.device)
         end_flag_batch = torch.zeros((batch_size, max_episode_length, 1)).to(config.device)
@@ -67,21 +67,21 @@ def load_data(filename_vae_latents, filename_environment_vars, batch_size=512, t
             episode_length = episode_end - episode_start
 
             mean_batch[j, :episode_length] = mean_store[episode_start:episode_end]
-            sigma_batch[j, :episode_length] = sigma_store[episode_start:episode_end]
+            var_batch[j, :episode_length] = var_store[episode_start:episode_end]
             state_vars_batch[j, :episode_length] = state_vars[episode_start:episode_end]
             action_batch[j, :episode_length] = action_store[episode_start:episode_end, None]
             mask_batch[j, :episode_length] = 1
             end_flag_batch[j, episode_length-1] = 1
         # Append the current batch to the lists
         mean_batches.append(mean_batch)
-        sigma_batches.append(sigma_batch)
+        var_batches.append(var_batch)
         state_vars_batches.append(state_vars_batch)
         action_batches.append(action_batch)
         mask_batches.append(mask_batch)
         end_flag_batches.append(end_flag_batch)
         if truncate_at_batch is not None and len(mean_batches) == truncate_at_batch: break
     n_batches = len(mean_batches)
-    return n_batches, mean_batches, sigma_batches, state_vars_batches, action_batches, mask_batches, end_flag_batches
+    return n_batches, mean_batches, var_batches, state_vars_batches, action_batches, mask_batches, end_flag_batches
 
 
 def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, verbose=False, rnn_id=0,
@@ -93,7 +93,7 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
         multiplier_ef is the multiplier of the readout value (e.g. error flag = 10 instead of =1).
         Helps the network output larger values when it thinks the game is getting over.
     """
-    n_batches, mean_batches, sigma_batches, state_vars_batches, \
+    n_batches, mean_batches, var_batches, state_vars_batches, \
         action_batches, mask_batches, end_flag_batches = training_data
     batch_size = mean_batches[0].shape[0]
     losses_store = np.zeros((n_epochs, n_batches, 4))
@@ -139,12 +139,12 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
             hidden = model.init_hidden(batch_size)
 
             means = mean_batches[batch_i]
-            sigmas = sigma_batches[batch_i]
+            vars = var_batches[batch_i]
             actions = action_batches[batch_i]
             masks = mask_batches[batch_i][:, 1:]
             end_flags = end_flag_batches[batch_i]
             state_vars = state_vars_batches[batch_i][:, :-1]
-            z_values = reparameterization(means, sigmas)
+            z_values = reparameterization(means, vars)
             # z_values=means
             # inputs = z(t) + action(t)
             inputs = torch.cat([z_values[:, :-1], actions[:, :-1]], dim=2)  # [:, :-1]
