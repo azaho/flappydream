@@ -248,7 +248,7 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
             np.savez_compressed(f"{save_folder}/rnn{rnn_id}/rnn_gradientnorms.npz", losses_store=gradient_norms_store)
             with open(f"{save_folder}/rnn{rnn_id}/rnn_meta.json", "w") as out_file:
                 json.dump({"state_vars_to_predict": model.state_vars_to_predict.tolist() if model.n_state_vars>0 else [],
-                           "trained_epochs": n_epochs, "exceptions_log": exceptions
+                           "trained_epochs": n_epochs#, "exceptions_log": exceptions
                            }, out_file, indent = 4)
             logging.info("== NETWORK SAVED\n")
         epoch += 1
