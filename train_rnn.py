@@ -86,7 +86,7 @@ def load_data(filename_vae_latents, filename_environment_vars, batch_size=512, t
 
 def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, verbose=False, rnn_id=0,
               note_every_epochs=5, save_folder="data", detach_gradients=True, max_gradient_norm=None,
-              lambda_ef=10, multiplier_ef=1, lambda_sv=10):
+              lambda_ef=1, multiplier_ef=10, lambda_sv=10):
     """
         Trains the RNN
 
