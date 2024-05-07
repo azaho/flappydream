@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH -n 1                # node count
 #SBATCH --gres=gpu:1
-#SBATCH --constraint=high-capacity
-#SBATCH --mem-per-gpu=11GB
+#SBATCH --constraint=high-capacity,11GB
+#SBATCH --mem=11GB
 #SBATCH -t 10:00:00          # total run time limit (HH:MM:SS)
 #SBATCH --array=0-19
 #SBATCH --output /om2/user/zaho/flappydream/reports/slurm-%A_%a.out # STDOUT
