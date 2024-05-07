@@ -115,27 +115,33 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
     logging.info(f"Using {config.device}")
 
     # Check for the last saved epoch
-    last_epoch = 0
-    for file in os.listdir(f"{save_folder}/rnn{rnn_id}/"):
-        if file.startswith("rnn_model_epoch") and file.endswith(".pt"):
-            epoch_num = int(file.split("epoch")[1].split(".")[0])
-            if epoch_num > last_epoch:
-                last_epoch = epoch_num
-    if last_epoch > 0:
+    def _get_last_saved_epoch():
+        last_epoch = 0
+        for file in os.listdir(f"{save_folder}/rnn{rnn_id}/"):
+            if file.startswith("rnn_model_epoch") and file.endswith(".pt"):
+                epoch_num = int(file.split("epoch")[1].split(".")[0])
+                if epoch_num > last_epoch:
+                    last_epoch = epoch_num
+        return last_epoch
+    def _restore_from_saved_epoch(last_epoch):
         logging.info(f"Resuming training from epoch {last_epoch}")
         model.load_state_dict(torch.load(f"{save_folder}/rnn{rnn_id}/rnn_model_epoch{last_epoch}.pt"))
         optimizer.load_state_dict(torch.load(f"{save_folder}/rnn{rnn_id}/rnn_optimizer_epoch{last_epoch}.pt"))
         losses_store = np.load(f"{save_folder}/rnn{rnn_id}/rnn_losses.npz")["losses_store"]
         gradient_norms_store = np.load(f"{save_folder}/rnn{rnn_id}/rnn_gradientnorms.npz")["losses_store"]
+    epoch = _get_last_saved_epoch()
+    if epoch>0: _restore_from_saved_epoch(epoch)
 
     noted_time = time.time()
     epoch_states = []
     exceptions = []
-    epoch = last_epoch
     restored = False
+    N_restored_in_a_row = 0  # Once many restored in a row, go to the last saved network
+    batch_indices = np.arange(n_batches)
     while epoch<n_epochs:
-        # Set initial hidden and cell states
-        for batch_i in range(n_batches):
+        np.random.shuffle(batch_indices)  # reshuffle indices
+        for batch_i in batch_indices:
+            # Set initial hidden and cell states
             hidden = model.init_hidden(batch_size)
 
             means = mean_batches[batch_i]
@@ -175,7 +181,7 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
                 optimizer.step()
 
             except Exception as e:
-                logging.info(f"Exception occurred at epoch {epoch+1}, batch {batch_i+1}. {str(e)}")
+                logging.info(f"Exception occurred at epoch {epoch+1}, batch {batch_i+1}. {str(e)[:500]}")
                 logging.info("Restoring model from the last known good checkpoint.")
                 exceptions.append((epoch+1, batch_i+1))
 
@@ -202,11 +208,17 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
                 optimizer.load_state_dict(optimizer_state)
 
                 noted_time = time.time()  # Reset the timer
+                N_restored_in_a_row += 1
                 restored=True
                 break
         if restored:
+            if N_restored_in_a_row>10:
+                epoch = _get_last_saved_epoch()
+                if epoch > 0: _restore_from_saved_epoch(epoch)
+                N_restored_in_a_row = 0
             restored=False
             continue
+        N_restored_in_a_row = 0
 
         # Save model and optimizer state every epoch
         epoch_states.append({

@@ -71,7 +71,7 @@ def loss_errorflag(y_target, ef, masks, multiplier_ef=1):
         Loss associated with predicting the end flag (whether the game terminated)
     """
     y_target = y_target[:, :, -1:]  # only leave the "end flag" part of the target output
-    multiplier_mask = torch.where(y_target>0, multiplier_ef, 0)
+    multiplier_mask = torch.where(y_target>0, multiplier_ef, 1)
     return ((y_target[:, :, -1:]-ef)**2 * masks[:, :, None] * multiplier_mask).sum() / masks.sum()
 def loss_statevars(state_vars_true, state_vars_pred, masks):
     """
