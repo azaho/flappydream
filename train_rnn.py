@@ -245,7 +245,7 @@ if __name__ == "__main__":
     parser.add_argument('--use_layernorm', '-ln', action='store_true', help='Whether to use layer normalization')
     parser.add_argument('--n_hidden', '-nh', type=int, default=128, help='Number of hidden units in the RNN')
     parser.add_argument('--dim_latent_z', '-dlz', type=int, default=8, help='Dimensionality of the latent observation space of the VAE')
-    parser.add_argument('--train_epochs', '-e', type=int, default=250, help='Number of training epochs')
+    parser.add_argument('--train_epochs', '-e', type=int, default=500, help='Number of training epochs')
     parser.add_argument('--save_every_epochs', '-se', type=int, default=50,
                         help='Save the model every specified number of epochs')
     parser.add_argument('--max_gradient_norm', '-mgn', type=float, default=100.0,
