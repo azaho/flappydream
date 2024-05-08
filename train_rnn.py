@@ -206,9 +206,9 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
             #     if checkpoints[-1][1] < 1: break
             #     checkpoints.pop(-1)
 
-            epoch = _restore_from_save(model, optimizer, checkpoints[-1][0])
+            epoch = _restore_from_save(model, optimizer, checkpoints[0][0])
             logging.info(f"Restoring model from epoch {epoch+1}")
-            checkpoints[-1][1] += 1
+            checkpoints[0][1] += 1
             continue
 
         if ((epoch+1) % note_every_epochs == 0):
