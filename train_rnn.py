@@ -191,11 +191,11 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
             loss, loss_mdn, loss_ef, loss_sv = _train_one_epoch(model, optimizer, epoch)
             # Save model and optimizer state every epoch
             if (epoch+1)%5 == 0:
-                checkpoints.append(({
+                checkpoints.append([{
                     'epoch': epoch,
                     'model_state_dict': copy.deepcopy(model.state_dict()),
                     'optimizer_state_dict': copy.deepcopy(optimizer.state_dict())
-                }, 0))
+                }, 0])
         except Exception as e:
             logging.info(f"Exception occurred at epoch {epoch + 1}. {str(e)[:300]}")
             while True:
