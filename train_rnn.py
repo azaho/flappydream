@@ -197,7 +197,7 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
                     'model_state_dict': copy.deepcopy(model.state_dict()),
                     'optimizer_state_dict': copy.deepcopy(optimizer.state_dict())
                 }, 0])
-                while len(checkpoints) > 10:
+                while len(checkpoints) > 20:
                     checkpoints.pop(0)
         except Exception as e:
             logging.info(f"Exception occurred at epoch {epoch + 1}. {str(e)[:300]}")
