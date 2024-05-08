@@ -86,7 +86,7 @@ def load_data(filename_vae_latents, filename_environment_vars, batch_size=512, t
 
 def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, verbose=False, rnn_id=0,
               note_every_epochs=5, save_folder="data", detach_gradients=True, max_gradient_norm=None,
-              lambda_ef=10, multiplier_ef=2, lambda_sv=10):
+              lambda_ef=10, multiplier_ef=10, lambda_sv=10):
     """
         Trains the RNN
 
@@ -132,11 +132,17 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
     epoch = _get_last_saved_epoch()
     if epoch>0: _restore_from_saved_epoch(epoch)
 
-    def _train_one_epoch(model, optimizer, epoch):
-        batch_indices = np.arange(n_batches)
+    noted_time = time.time()
+    epoch_states = []
+    exceptions = []
+    restored = False
+    N_restored_in_a_row = 0  # Once many restored in a row, go to the last saved network
+    batch_indices = np.arange(n_batches)
+    while epoch<n_epochs:
         np.random.shuffle(batch_indices)  # reshuffle indices
         for batch_i in batch_indices:
-            hidden = model.init_hidden(batch_size) # Set initial hidden and cell states
+            # Set initial hidden and cell states
+            hidden = model.init_hidden(batch_size)
 
             means = mean_batches[batch_i]
             sigmas = sigma_batches[batch_i]
@@ -145,66 +151,83 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
             end_flags = end_flag_batches[batch_i]
             state_vars = state_vars_batches[batch_i][:, :-1]
             z_values = reparameterization(means, sigmas)
-            inputs = torch.cat([z_values, actions], dim=2)[:, :-1] # inputs = z(t) + action(t)
-            targets = torch.cat([z_values, end_flags], dim=2)[:, 1:] # targets = z(t+1) + end_flag(t+1)
+            # z_values=means
+            # inputs = z(t) + action(t)
+            inputs = torch.cat([z_values[:, :-1], actions[:, :-1]], dim=2)  # [:, :-1]
+            # targets = z(t+1) + end_flag(t+1)
+            targets = torch.cat([z_values, end_flags], dim=2)[:, 1:]
 
-            if detach_gradients: hidden = detach(hidden)
-            (pi, mu, sigma), ef, hidden, y = model(inputs, hidden)
-            loss_mdn = loss_pred(targets, pi, mu, sigma, masks)
-            loss_ef = loss_errorflag(targets, ef, masks, multiplier_ef) * lambda_ef
-            if model.n_state_vars > 0:
-                loss_sv = loss_statevars(state_vars[:, :, model.state_vars_to_predict],
-                                         model.get_decoded_state_vars(y), masks) * lambda_sv
-            else: loss_sv = torch.tensor(0)
-            loss = loss_mdn + loss_ef + loss_sv
-            losses_store[epoch, batch_i, :] = [loss_mdn.item(), loss_ef.item(), loss_sv.item(), loss.item()]
-            model.zero_grad() # Backward and optimize
-            loss.backward()
-            if max_gradient_norm is not None: torch.nn.utils.clip_grad_norm_(model.parameters(), max_gradient_norm)
-            grad_norm = np.sqrt(sum([torch.norm(p.grad) ** 2 for p in model.parameters()]).item())
-            gradient_norms_store[epoch, batch_i, 0] = grad_norm
-            optimizer.step()
-    def _restore_from_save(model, optimizer, checkpoint):
-        # Clear GPU memory
-        torch.cuda.empty_cache()
-        # Move model and optimizer to CPU
-        model.to('cpu')
-        optimizer_state = optimizer.state_dict()
-        optimizer.state = collections.defaultdict(dict)
-        optimizer.load_state_dict(optimizer_state)
-        epoch = checkpoint['epoch'] + 1
-        model.load_state_dict(checkpoint['model_state_dict'])
-        optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
-        # Move model and optimizer back to GPU
-        model.to(config.device)
-        optimizer_state = optimizer.state_dict()
-        optimizer.state = collections.defaultdict(dict)
-        optimizer.load_state_dict(optimizer_state)
-        return epoch
+            try:
+                if detach_gradients: hidden = detach(hidden)
+                (pi, mu, sigma), ef, hidden, y = model(inputs, hidden)
 
-    checkpoints = []
-    noted_time = time.time()
-    while epoch<n_epochs:
-        noted_time = time.time()
-        try:
-            _train_one_epoch(model, optimizer, epoch)
-            # Save model and optimizer state every epoch
-            if (epoch+1)%5 == 0:
-                checkpoints.append(({
-                    'epoch': epoch,
-                    'model_state_dict': copy.deepcopy(model.state_dict()),
-                    'optimizer_state_dict': copy.deepcopy(optimizer.state_dict())
-                }, 0))
-        except Exception as e:
-            logging.info(f"Exception occurred at epoch {epoch + 1}. {str(e)[:300]}")
-            while True:
-                if checkpoints[-1][1] < 3: break
-                checkpoints.pop(-1)
+                loss_mdn = loss_pred(targets, pi, mu, sigma, masks)
+                loss_ef = loss_errorflag(targets, ef, masks, multiplier_ef) * lambda_ef
+                if model.n_state_vars > 0:
+                    loss_sv = loss_statevars(state_vars[:, :, model.state_vars_to_predict],
+                                             model.get_decoded_state_vars(y), masks) * lambda_sv
+                else:
+                    loss_sv = torch.tensor(0)
+                loss = loss_mdn + loss_ef + loss_sv
+                losses_store[epoch, batch_i, :] = [loss_mdn.item(), loss_ef.item(), loss_sv.item(), loss.item()]
 
-            logging.info(f"Restoring model from epoch {epoch+1}")
-            epoch = _restore_from_save(model, optimizer, checkpoints[-1][0])
-            checkpoints[-1][1] += 1
+                # Backward and optimize
+                model.zero_grad()
+                loss.backward()
+
+                if max_gradient_norm is not None: torch.nn.utils.clip_grad_norm_(model.parameters(), max_gradient_norm) # clip in training
+                grad_norm = np.sqrt(sum([torch.norm(p.grad) ** 2 for p in model.parameters()]).item())
+                gradient_norms_store[epoch, batch_i, 0] = grad_norm
+                optimizer.step()
+
+            except Exception as e:
+                logging.info(f"Exception occurred at epoch {epoch+1}, batch {batch_i+1}. {str(e)[:500]}")
+                logging.info("Restoring model from the last known good checkpoint.")
+                exceptions.append((epoch+1, batch_i+1))
+
+                # Clear GPU memory
+                torch.cuda.empty_cache()
+
+                # Move model and optimizer to CPU
+                model.to('cpu')
+                optimizer_state = optimizer.state_dict()
+                optimizer.state = collections.defaultdict(dict)
+                optimizer.load_state_dict(optimizer_state)
+
+                # Restore model and optimizer states
+                checkpoint = epoch_states[0]
+
+                epoch = checkpoint['epoch']+1
+                model.load_state_dict(checkpoint['model_state_dict'])
+                optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+
+                # Move model and optimizer back to GPU
+                model.to(config.device)
+                optimizer_state = optimizer.state_dict()
+                optimizer.state = collections.defaultdict(dict)
+                optimizer.load_state_dict(optimizer_state)
+
+                noted_time = time.time()  # Reset the timer
+                N_restored_in_a_row += 1
+                restored=True
+                break
+        if restored:
+            if N_restored_in_a_row>10:
+                epoch = _get_last_saved_epoch()
+                if epoch > 0: _restore_from_saved_epoch(epoch)
+                N_restored_in_a_row = 0
+            restored=False
             continue
+        N_restored_in_a_row = 0
+
+        # Save model and optimizer state every epoch
+        epoch_states.append({
+            'epoch': epoch,
+            'model_state_dict': copy.deepcopy(model.state_dict()),
+            'optimizer_state_dict': copy.deepcopy(optimizer.state_dict())
+        })
+        while len(epoch_states) > 20:
+            epoch_states.pop(0)
 
         if ((epoch+1) % note_every_epochs == 0):
             epoch_end_time = time.time()
