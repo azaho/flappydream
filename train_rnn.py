@@ -86,7 +86,7 @@ def load_data(filename_vae_latents, filename_environment_vars, batch_size=512, t
 
 def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, verbose=False, rnn_id=0,
               note_every_epochs=5, save_folder="data", detach_gradients=True, max_gradient_norm=None,
-              lambda_ef=10, multiplier_ef=2, lambda_sv=10):
+              lambda_ef=10, multiplier_ef=1, lambda_sv=10):
     """
         Trains the RNN
 
@@ -184,26 +184,30 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
         return epoch
 
     checkpoints = []
+    exceptions = []
     noted_time = time.time()
     while epoch<n_epochs:
         noted_time = time.time()
         try:
             loss, loss_mdn, loss_ef, loss_sv = _train_one_epoch(model, optimizer, epoch)
             # Save model and optimizer state every epoch
-            if (epoch+1)%5 == 0:
+            if True:#(epoch+1)%5 == 0:
                 checkpoints.append([{
                     'epoch': epoch,
                     'model_state_dict': copy.deepcopy(model.state_dict()),
                     'optimizer_state_dict': copy.deepcopy(optimizer.state_dict())
                 }, 0])
+                while len(checkpoints) > 30:
+                    checkpoints.pop(0)
         except Exception as e:
             logging.info(f"Exception occurred at epoch {epoch + 1}. {str(e)[:300]}")
+            exceptions.append(epoch+1)
             while True:
-                if checkpoints[-1][1] < 3: break
+                if checkpoints[-1][1] < 1: break
                 checkpoints.pop(-1)
 
-            logging.info(f"Restoring model from epoch {epoch+1}")
             epoch = _restore_from_save(model, optimizer, checkpoints[-1][0])
+            logging.info(f"Restoring model from epoch {epoch+1}")
             checkpoints[-1][1] += 1
             continue
 
@@ -224,10 +228,10 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
             torch.save(optimizer.state_dict(), f"{save_folder}/rnn{rnn_id}/rnn_optimizer_epoch{epoch+1}.pt")
             np.savez_compressed(f"{save_folder}/rnn{rnn_id}/rnn_losses.npz", losses_store=losses_store)
             np.savez_compressed(f"{save_folder}/rnn{rnn_id}/rnn_gradientnorms.npz", losses_store=gradient_norms_store)
-            # with open(f"{save_folder}/rnn{rnn_id}/rnn_meta.json", "w") as out_file:
-            #     json.dump({#"state_vars_to_predict": model.state_vars_to_predict.tolist() if model.n_state_vars>0 else [],
-            #                "trained_epochs": n_epochs#, "exceptions_log": exceptions
-            #                }, out_file, indent = 4)
+            with open(f"{save_folder}/rnn{rnn_id}/rnn_meta.json", "w") as out_file:
+                json.dump({#"state_vars_to_predict": model.state_vars_to_predict.tolist() if model.n_state_vars>0 else [],
+                           "trained_epochs": n_epochs, "exceptions_log": exceptions
+                           }, out_file, indent = 4)
             logging.info("== NETWORK SAVED\n")
         epoch += 1
 
@@ -264,7 +268,7 @@ if __name__ == "__main__":
     random_index = args.random_index
     lambda_sv = args.lambda_sv
     dim_latent_z = args.dim_latent_z
-    if lambda_sv == 0: state_vars_to_predict = []
+    #if lambda_sv == 0: state_vars_to_predict = []
 
     if args.enforce_cuda and not torch.cuda.is_available():
         print("CUDA NOT AVAILABLE! Exiting.")

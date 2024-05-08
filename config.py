@@ -3,7 +3,7 @@ import torch
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 vae_latent_dim = 8
 
-rollouts_random_n = 5000
+rollouts_random_n = 2000
 rollouts_dqn_n = 2000
 
 state_variables_names =  [
