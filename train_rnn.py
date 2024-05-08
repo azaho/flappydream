@@ -164,6 +164,7 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
             grad_norm = np.sqrt(sum([torch.norm(p.grad) ** 2 for p in model.parameters()]).item())
             gradient_norms_store[epoch, batch_i, 0] = grad_norm
             optimizer.step()
+        return loss, loss_mdn, loss_ef, loss_sv
     def _restore_from_save(model, optimizer, checkpoint):
         # Clear GPU memory
         torch.cuda.empty_cache()
@@ -187,7 +188,7 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
     while epoch<n_epochs:
         noted_time = time.time()
         try:
-            _train_one_epoch(model, optimizer, epoch)
+            loss, loss_mdn, loss_ef, loss_sv = _train_one_epoch(model, optimizer, epoch)
             # Save model and optimizer state every epoch
             if (epoch+1)%5 == 0:
                 checkpoints.append(({
