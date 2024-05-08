@@ -16,7 +16,8 @@ arrA=("0" "1" "10" "20" "40")
 arrB=(0 1 2 3 4)
 A=${arrA[$A]}
 B=${arrB[$B]}
+C=${arrC[$C]}
 
 echo $A $B
 nvidia-smi
-python train_rnn.py -t 40 -lr 0.001 -ecuda -lsv $A -sv 9 10 11 -r $B
+python train_rnn.py -t 40 -lr 0.001 -ecuda -lsv $A -sv $C -r $B

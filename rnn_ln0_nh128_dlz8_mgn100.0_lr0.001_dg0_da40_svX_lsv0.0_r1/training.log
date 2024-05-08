@@ -1,0 +1,897 @@
+2024-05-07 21:52:03,928 - Using cuda
+2024-05-07 21:52:17,105 - Epoch [5/250], Loss: -14.5581 (-14.7180, 0.1599, 0.0000)
+2024-05-07 21:52:17,106 -      ETA: 00:02:09.44
+2024-05-07 21:52:30,283 - Epoch [10/250], Loss: -18.0979 (-18.2558, 0.1579, 0.0000)
+2024-05-07 21:52:30,284 -      ETA: 00:02:06.73
+2024-05-07 21:52:43,464 - Epoch [15/250], Loss: -19.0147 (-19.1673, 0.1526, 0.0000)
+2024-05-07 21:52:43,465 -      ETA: 00:02:04.19
+2024-05-07 21:52:56,656 - Epoch [20/250], Loss: -19.9483 (-20.0996, 0.1513, 0.0000)
+2024-05-07 21:52:56,657 -      ETA: 00:02:01.49
+2024-05-07 21:53:09,864 - Epoch [25/250], Loss: -20.4648 (-20.6040, 0.1392, 0.0000)
+2024-05-07 21:53:09,864 -      ETA: 00:01:59.22
+2024-05-07 21:53:23,086 - Epoch [30/250], Loss: -21.5798 (-21.7241, 0.1442, 0.0000)
+2024-05-07 21:53:23,087 -      ETA: 00:01:56.63
+2024-05-07 21:53:36,306 - Epoch [35/250], Loss: -21.7288 (-21.8853, 0.1565, 0.0000)
+2024-05-07 21:53:36,307 -      ETA: 00:01:53.76
+2024-05-07 21:53:49,506 - Epoch [40/250], Loss: -20.3127 (-20.4623, 0.1496, 0.0000)
+2024-05-07 21:53:49,507 -      ETA: 00:01:50.87
+2024-05-07 21:54:02,715 - Epoch [45/250], Loss: -22.2968 (-22.4426, 0.1457, 0.0000)
+2024-05-07 21:54:02,716 -      ETA: 00:01:48.60
+2024-05-07 21:54:15,936 - Epoch [50/250], Loss: -22.0620 (-22.2004, 0.1384, 0.0000)
+2024-05-07 21:54:15,936 -      ETA: 00:01:45.79
+2024-05-07 21:54:15,978 - == NETWORK SAVED
+
+2024-05-07 21:54:29,178 - Epoch [55/250], Loss: -22.7484 (-22.8823, 0.1339, 0.0000)
+2024-05-07 21:54:29,179 -      ETA: 00:01:43.15
+2024-05-07 21:54:42,396 - Epoch [60/250], Loss: -20.4828 (-20.6225, 0.1397, 0.0000)
+2024-05-07 21:54:42,396 -      ETA: 00:01:40.63
+2024-05-07 21:54:55,616 - Epoch [65/250], Loss: -23.5901 (-23.7302, 0.1401, 0.0000)
+2024-05-07 21:54:55,616 -      ETA: 00:01:38.04
+2024-05-07 21:55:02,239 - Exception occurred at epoch 68. Expected parameter loc (Tensor of shape (256, 631, 5, 8)) of distribution Normal(loc: torch.Size([256, 631, 5, 8]), scale: torch.Size([256, 631, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:55:02,239 - Restoring model from epoch 68
+2024-05-07 21:55:14,195 - Exception occurred at epoch 70. Expected parameter loc (Tensor of shape (256, 813, 5, 8)) of distribution Normal(loc: torch.Size([256, 813, 5, 8]), scale: torch.Size([256, 813, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:55:14,196 - Restoring model from epoch 70
+2024-05-07 21:55:26,817 - Exception occurred at epoch 70. Expected parameter loc (Tensor of shape (256, 801, 5, 8)) of distribution Normal(loc: torch.Size([256, 801, 5, 8]), scale: torch.Size([256, 801, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:55:26,818 - Restoring model from epoch 70
+2024-05-07 21:55:33,528 - Exception occurred at epoch 68. Expected parameter loc (Tensor of shape (256, 914, 5, 8)) of distribution Normal(loc: torch.Size([256, 914, 5, 8]), scale: torch.Size([256, 914, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:55:33,528 - Restoring model from epoch 68
+2024-05-07 21:55:46,847 - Epoch [65/250], Loss: -23.4685 (-23.6107, 0.1422, 0.0000)
+2024-05-07 21:55:46,847 -      ETA: 00:01:38.22
+2024-05-07 21:55:49,549 - Exception occurred at epoch 67. Expected parameter loc (Tensor of shape (256, 592, 5, 8)) of distribution Normal(loc: torch.Size([256, 592, 5, 8]), scale: torch.Size([256, 592, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:55:49,549 - Restoring model from epoch 67
+2024-05-07 21:55:53,290 - Exception occurred at epoch 67. Expected parameter loc (Tensor of shape (256, 813, 5, 8)) of distribution Normal(loc: torch.Size([256, 813, 5, 8]), scale: torch.Size([256, 813, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:55:53,291 - Restoring model from epoch 67
+2024-05-07 21:55:56,590 - Exception occurred at epoch 67. Expected parameter loc (Tensor of shape (256, 391, 5, 8)) of distribution Normal(loc: torch.Size([256, 391, 5, 8]), scale: torch.Size([256, 391, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:55:56,590 - Restoring model from epoch 67
+2024-05-07 21:55:57,559 - Exception occurred at epoch 66. Expected parameter loc (Tensor of shape (256, 553, 5, 8)) of distribution Normal(loc: torch.Size([256, 553, 5, 8]), scale: torch.Size([256, 553, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:55:57,559 - Restoring model from epoch 66
+2024-05-07 21:56:01,918 - Exception occurred at epoch 62. Expected parameter loc (Tensor of shape (256, 631, 5, 8)) of distribution Normal(loc: torch.Size([256, 631, 5, 8]), scale: torch.Size([256, 631, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:56:01,918 - Restoring model from epoch 62
+2024-05-07 21:56:07,973 - Exception occurred at epoch 63. Expected parameter loc (Tensor of shape (256, 777, 5, 8)) of distribution Normal(loc: torch.Size([256, 777, 5, 8]), scale: torch.Size([256, 777, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:56:07,974 - Restoring model from epoch 63
+2024-05-07 21:56:19,410 - Exception occurred at epoch 60. Expected parameter loc (Tensor of shape (256, 801, 5, 8)) of distribution Normal(loc: torch.Size([256, 801, 5, 8]), scale: torch.Size([256, 801, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:56:19,411 - Restoring model from epoch 60
+2024-05-07 21:56:28,061 - Exception occurred at epoch 59. Expected parameter loc (Tensor of shape (256, 652, 5, 8)) of distribution Normal(loc: torch.Size([256, 652, 5, 8]), scale: torch.Size([256, 652, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:56:28,061 - Restoring model from epoch 59
+2024-05-07 21:56:37,616 - Exception occurred at epoch 59. Expected parameter loc (Tensor of shape (256, 729, 5, 8)) of distribution Normal(loc: torch.Size([256, 729, 5, 8]), scale: torch.Size([256, 729, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:56:37,616 - Restoring model from epoch 59
+2024-05-07 21:56:50,968 - Epoch [55/250], Loss: -21.3435 (-21.4725, 0.1290, 0.0000)
+2024-05-07 21:56:50,968 -      ETA: 00:01:44.00
+2024-05-07 21:56:59,195 - Exception occurred at epoch 59. Expected parameter loc (Tensor of shape (256, 540, 5, 8)) of distribution Normal(loc: torch.Size([256, 540, 5, 8]), scale: torch.Size([256, 540, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:56:59,195 - Restoring model from epoch 59
+2024-05-07 21:57:12,520 - Epoch [60/250], Loss: -20.7025 (-20.8443, 0.1419, 0.0000)
+2024-05-07 21:57:12,520 -      ETA: 00:01:41.22
+2024-05-07 21:57:25,326 - Exception occurred at epoch 65. Expected parameter loc (Tensor of shape (256, 914, 5, 8)) of distribution Normal(loc: torch.Size([256, 914, 5, 8]), scale: torch.Size([256, 914, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:57:25,326 - Restoring model from epoch 65
+2024-05-07 21:57:36,103 - Exception occurred at epoch 65. Expected parameter loc (Tensor of shape (256, 575, 5, 8)) of distribution Normal(loc: torch.Size([256, 575, 5, 8]), scale: torch.Size([256, 575, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:57:36,104 - Restoring model from epoch 65
+2024-05-07 21:57:45,439 - Exception occurred at epoch 64. Expected parameter loc (Tensor of shape (256, 503, 5, 8)) of distribution Normal(loc: torch.Size([256, 503, 5, 8]), scale: torch.Size([256, 503, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:57:45,439 - Restoring model from epoch 64
+2024-05-07 21:57:50,885 - Exception occurred at epoch 63. Expected parameter loc (Tensor of shape (256, 631, 5, 8)) of distribution Normal(loc: torch.Size([256, 631, 5, 8]), scale: torch.Size([256, 631, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:57:50,885 - Restoring model from epoch 63
+2024-05-07 21:58:03,641 - Exception occurred at epoch 60. Expected parameter loc (Tensor of shape (256, 513, 5, 8)) of distribution Normal(loc: torch.Size([256, 513, 5, 8]), scale: torch.Size([256, 513, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:58:03,641 - Restoring model from epoch 60
+2024-05-07 21:58:17,047 - Epoch [60/250], Loss: -23.3973 (-23.5351, 0.1379, 0.0000)
+2024-05-07 21:58:17,047 -      ETA: 00:01:41.73
+2024-05-07 21:58:17,481 - Exception occurred at epoch 61. Expected parameter loc (Tensor of shape (256, 854, 5, 8)) of distribution Normal(loc: torch.Size([256, 854, 5, 8]), scale: torch.Size([256, 854, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:58:17,481 - Restoring model from epoch 61
+2024-05-07 21:58:17,674 - Exception occurred at epoch 61. Expected parameter loc (Tensor of shape (256, 659, 5, 8)) of distribution Normal(loc: torch.Size([256, 659, 5, 8]), scale: torch.Size([256, 659, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:58:17,674 - Restoring model from epoch 61
+2024-05-07 21:58:18,249 - Exception occurred at epoch 61. Expected parameter loc (Tensor of shape (256, 970, 5, 8)) of distribution Normal(loc: torch.Size([256, 970, 5, 8]), scale: torch.Size([256, 970, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:58:18,249 - Restoring model from epoch 61
+2024-05-07 21:58:29,115 - Exception occurred at epoch 65. Expected parameter loc (Tensor of shape (256, 777, 5, 8)) of distribution Normal(loc: torch.Size([256, 777, 5, 8]), scale: torch.Size([256, 777, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:58:29,115 - Restoring model from epoch 65
+2024-05-07 21:58:42,478 - Epoch [55/250], Loss: -22.7622 (-22.9044, 0.1421, 0.0000)
+2024-05-07 21:58:42,479 -      ETA: 00:01:44.22
+2024-05-07 21:58:55,834 - Epoch [60/250], Loss: -22.4459 (-22.5820, 0.1362, 0.0000)
+2024-05-07 21:58:55,834 -      ETA: 00:01:41.63
+2024-05-07 21:58:58,421 - Exception occurred at epoch 61. Expected parameter loc (Tensor of shape (256, 506, 5, 8)) of distribution Normal(loc: torch.Size([256, 506, 5, 8]), scale: torch.Size([256, 506, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:58:58,421 - Restoring model from epoch 61
+2024-05-07 21:59:11,809 - Epoch [65/250], Loss: -23.6820 (-23.8135, 0.1315, 0.0000)
+2024-05-07 21:59:11,809 -      ETA: 00:01:38.99
+2024-05-07 21:59:12,566 - Exception occurred at epoch 66. Expected parameter loc (Tensor of shape (256, 659, 5, 8)) of distribution Normal(loc: torch.Size([256, 659, 5, 8]), scale: torch.Size([256, 659, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:59:12,566 - Restoring model from epoch 66
+2024-05-07 21:59:13,353 - Exception occurred at epoch 66. Expected parameter loc (Tensor of shape (256, 660, 5, 8)) of distribution Normal(loc: torch.Size([256, 660, 5, 8]), scale: torch.Size([256, 660, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:59:13,353 - Restoring model from epoch 66
+2024-05-07 21:59:13,877 - Exception occurred at epoch 66. Expected parameter loc (Tensor of shape (256, 914, 5, 8)) of distribution Normal(loc: torch.Size([256, 914, 5, 8]), scale: torch.Size([256, 914, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:59:13,878 - Restoring model from epoch 66
+2024-05-07 21:59:15,278 - Exception occurred at epoch 66. Expected parameter loc (Tensor of shape (256, 540, 5, 8)) of distribution Normal(loc: torch.Size([256, 540, 5, 8]), scale: torch.Size([256, 540, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:59:15,279 - Restoring model from epoch 66
+2024-05-07 21:59:26,283 - Exception occurred at epoch 65. Expected parameter loc (Tensor of shape (256, 481, 5, 8)) of distribution Normal(loc: torch.Size([256, 481, 5, 8]), scale: torch.Size([256, 481, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:59:26,283 - Restoring model from epoch 65
+2024-05-07 21:59:29,752 - Exception occurred at epoch 62. Expected parameter loc (Tensor of shape (256, 623, 5, 8)) of distribution Normal(loc: torch.Size([256, 623, 5, 8]), scale: torch.Size([256, 623, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:59:29,753 - Restoring model from epoch 62
+2024-05-07 21:59:34,662 - Exception occurred at epoch 57. Expected parameter loc (Tensor of shape (256, 631, 5, 8)) of distribution Normal(loc: torch.Size([256, 631, 5, 8]), scale: torch.Size([256, 631, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:59:34,662 - Restoring model from epoch 57
+2024-05-07 21:59:47,996 - Epoch [60/250], Loss: -22.9560 (-23.0921, 0.1361, 0.0000)
+2024-05-07 21:59:47,996 -      ETA: 00:01:41.16
+2024-05-07 21:59:52,551 - Exception occurred at epoch 62. Expected parameter loc (Tensor of shape (256, 729, 5, 8)) of distribution Normal(loc: torch.Size([256, 729, 5, 8]), scale: torch.Size([256, 729, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 21:59:52,551 - Restoring model from epoch 62
+2024-05-07 22:00:04,951 - Exception occurred at epoch 65. Expected parameter loc (Tensor of shape (256, 553, 5, 8)) of distribution Normal(loc: torch.Size([256, 553, 5, 8]), scale: torch.Size([256, 553, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:00:04,952 - Restoring model from epoch 65
+2024-05-07 22:00:13,280 - Exception occurred at epoch 64. Expected parameter loc (Tensor of shape (256, 914, 5, 8)) of distribution Normal(loc: torch.Size([256, 914, 5, 8]), scale: torch.Size([256, 914, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:00:13,281 - Restoring model from epoch 64
+2024-05-07 22:00:25,916 - Exception occurred at epoch 65. Expected parameter loc (Tensor of shape (256, 503, 5, 8)) of distribution Normal(loc: torch.Size([256, 503, 5, 8]), scale: torch.Size([256, 503, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:00:25,916 - Restoring model from epoch 65
+2024-05-07 22:00:39,254 - Epoch [60/250], Loss: -22.7913 (-22.9351, 0.1437, 0.0000)
+2024-05-07 22:00:39,254 -      ETA: 00:01:41.17
+2024-05-07 22:00:43,698 - Exception occurred at epoch 62. Expected parameter loc (Tensor of shape (256, 513, 5, 8)) of distribution Normal(loc: torch.Size([256, 513, 5, 8]), scale: torch.Size([256, 513, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:00:43,698 - Restoring model from epoch 62
+2024-05-07 22:00:48,796 - Exception occurred at epoch 62. Expected parameter loc (Tensor of shape (256, 552, 5, 8)) of distribution Normal(loc: torch.Size([256, 552, 5, 8]), scale: torch.Size([256, 552, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:00:48,797 - Restoring model from epoch 62
+2024-05-07 22:00:56,012 - Exception occurred at epoch 63. Expected parameter loc (Tensor of shape (256, 553, 5, 8)) of distribution Normal(loc: torch.Size([256, 553, 5, 8]), scale: torch.Size([256, 553, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:00:56,012 - Restoring model from epoch 63
+2024-05-07 22:01:09,370 - Epoch [65/250], Loss: -23.1336 (-23.2712, 0.1377, 0.0000)
+2024-05-07 22:01:09,370 -      ETA: 00:01:38.65
+2024-05-07 22:01:22,702 - Epoch [70/250], Loss: -23.5073 (-23.6448, 0.1375, 0.0000)
+2024-05-07 22:01:22,702 -      ETA: 00:01:35.93
+2024-05-07 22:01:36,019 - Epoch [75/250], Loss: -24.0427 (-24.1633, 0.1206, 0.0000)
+2024-05-07 22:01:36,019 -      ETA: 00:01:33.39
+2024-05-07 22:01:38,872 - Exception occurred at epoch 77. Expected parameter loc (Tensor of shape (256, 777, 5, 8)) of distribution Normal(loc: torch.Size([256, 777, 5, 8]), scale: torch.Size([256, 777, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:01:38,873 - Restoring model from epoch 77
+2024-05-07 22:01:43,320 - Exception occurred at epoch 77. Expected parameter loc (Tensor of shape (256, 540, 5, 8)) of distribution Normal(loc: torch.Size([256, 540, 5, 8]), scale: torch.Size([256, 540, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:01:43,320 - Restoring model from epoch 77
+2024-05-07 22:01:45,920 - Exception occurred at epoch 76. Expected parameter loc (Tensor of shape (256, 540, 5, 8)) of distribution Normal(loc: torch.Size([256, 540, 5, 8]), scale: torch.Size([256, 540, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:01:45,920 - Restoring model from epoch 76
+2024-05-07 22:01:47,851 - Exception occurred at epoch 76. Expected parameter loc (Tensor of shape (256, 481, 5, 8)) of distribution Normal(loc: torch.Size([256, 481, 5, 8]), scale: torch.Size([256, 481, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:01:47,851 - Restoring model from epoch 76
+2024-05-07 22:01:49,965 - Exception occurred at epoch 71. Expected parameter loc (Tensor of shape (256, 801, 5, 8)) of distribution Normal(loc: torch.Size([256, 801, 5, 8]), scale: torch.Size([256, 801, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:01:49,965 - Restoring model from epoch 71
+2024-05-07 22:01:54,238 - Exception occurred at epoch 72. Expected parameter loc (Tensor of shape (256, 503, 5, 8)) of distribution Normal(loc: torch.Size([256, 503, 5, 8]), scale: torch.Size([256, 503, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:01:54,238 - Restoring model from epoch 72
+2024-05-07 22:02:01,735 - Exception occurred at epoch 73. Expected parameter loc (Tensor of shape (256, 476, 5, 8)) of distribution Normal(loc: torch.Size([256, 476, 5, 8]), scale: torch.Size([256, 476, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:02:01,735 - Restoring model from epoch 73
+2024-05-07 22:02:13,148 - Exception occurred at epoch 70. Expected parameter loc (Tensor of shape (256, 623, 5, 8)) of distribution Normal(loc: torch.Size([256, 623, 5, 8]), scale: torch.Size([256, 623, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:02:13,148 - Restoring model from epoch 70
+2024-05-07 22:02:25,678 - Exception occurred at epoch 70. Expected parameter loc (Tensor of shape (256, 631, 5, 8)) of distribution Normal(loc: torch.Size([256, 631, 5, 8]), scale: torch.Size([256, 631, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:02:25,678 - Restoring model from epoch 70
+2024-05-07 22:02:39,478 - Epoch [70/250], Loss: -23.7217 (-23.8561, 0.1344, 0.0000)
+2024-05-07 22:02:39,479 -      ETA: 00:01:39.38
+2024-05-07 22:02:40,038 - Exception occurred at epoch 71. Expected parameter loc (Tensor of shape (256, 516, 5, 8)) of distribution Normal(loc: torch.Size([256, 516, 5, 8]), scale: torch.Size([256, 516, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:02:40,038 - Restoring model from epoch 71
+2024-05-07 22:02:42,800 - Exception occurred at epoch 72. Expected parameter loc (Tensor of shape (256, 610, 5, 8)) of distribution Normal(loc: torch.Size([256, 610, 5, 8]), scale: torch.Size([256, 610, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:02:42,800 - Restoring model from epoch 72
+2024-05-07 22:02:45,160 - Exception occurred at epoch 71. Expected parameter loc (Tensor of shape (256, 462, 5, 8)) of distribution Normal(loc: torch.Size([256, 462, 5, 8]), scale: torch.Size([256, 462, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:02:45,160 - Restoring model from epoch 71
+2024-05-07 22:02:45,660 - Exception occurred at epoch 71. Expected parameter loc (Tensor of shape (256, 503, 5, 8)) of distribution Normal(loc: torch.Size([256, 503, 5, 8]), scale: torch.Size([256, 503, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:02:45,661 - Restoring model from epoch 71
+2024-05-07 22:02:57,922 - Exception occurred at epoch 55. Expected parameter loc (Tensor of shape (256, 462, 5, 8)) of distribution Normal(loc: torch.Size([256, 462, 5, 8]), scale: torch.Size([256, 462, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:02:57,923 - Restoring model from epoch 55
+2024-05-07 22:03:11,350 - Epoch [50/250], Loss: -22.2691 (-22.4188, 0.1497, 0.0000)
+2024-05-07 22:03:11,350 -      ETA: 00:01:47.42
+2024-05-07 22:03:11,401 - == NETWORK SAVED
+
+2024-05-07 22:03:15,832 - Exception occurred at epoch 52. Expected parameter loc (Tensor of shape (256, 552, 5, 8)) of distribution Normal(loc: torch.Size([256, 552, 5, 8]), scale: torch.Size([256, 552, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:03:15,833 - Restoring model from epoch 52
+2024-05-07 22:03:29,282 - Epoch [55/250], Loss: -22.7752 (-22.9164, 0.1412, 0.0000)
+2024-05-07 22:03:29,282 -      ETA: 00:01:44.76
+2024-05-07 22:03:42,695 - Epoch [60/250], Loss: -23.2986 (-23.4332, 0.1346, 0.0000)
+2024-05-07 22:03:42,696 -      ETA: 00:01:42.05
+2024-05-07 22:03:45,967 - Exception occurred at epoch 62. Expected parameter loc (Tensor of shape (256, 575, 5, 8)) of distribution Normal(loc: torch.Size([256, 575, 5, 8]), scale: torch.Size([256, 575, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:03:45,967 - Restoring model from epoch 62
+2024-05-07 22:03:59,464 - Epoch [65/250], Loss: -23.0257 (-23.1610, 0.1354, 0.0000)
+2024-05-07 22:03:59,464 -      ETA: 00:01:39.66
+2024-05-07 22:04:00,064 - Exception occurred at epoch 66. Expected parameter loc (Tensor of shape (256, 813, 5, 8)) of distribution Normal(loc: torch.Size([256, 813, 5, 8]), scale: torch.Size([256, 813, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:04:00,065 - Restoring model from epoch 66
+2024-05-07 22:04:13,566 - Epoch [70/250], Loss: -23.4746 (-23.6074, 0.1328, 0.0000)
+2024-05-07 22:04:13,566 -      ETA: 00:01:37.01
+2024-05-07 22:04:13,894 - Exception occurred at epoch 71. Expected parameter loc (Tensor of shape (256, 575, 5, 8)) of distribution Normal(loc: torch.Size([256, 575, 5, 8]), scale: torch.Size([256, 575, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:04:13,894 - Restoring model from epoch 71
+2024-05-07 22:04:18,293 - Exception occurred at epoch 72. Expected parameter loc (Tensor of shape (256, 577, 5, 8)) of distribution Normal(loc: torch.Size([256, 577, 5, 8]), scale: torch.Size([256, 577, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:04:18,293 - Restoring model from epoch 72
+2024-05-07 22:04:31,721 - Epoch [75/250], Loss: -22.7356 (-22.8678, 0.1322, 0.0000)
+2024-05-07 22:04:31,721 -      ETA: 00:01:34.08
+2024-05-07 22:04:45,123 - Epoch [80/250], Loss: -24.2311 (-24.3668, 0.1357, 0.0000)
+2024-05-07 22:04:45,123 -      ETA: 00:01:31.26
+2024-05-07 22:04:56,159 - Exception occurred at epoch 85. Expected parameter loc (Tensor of shape (256, 594, 5, 8)) of distribution Normal(loc: torch.Size([256, 594, 5, 8]), scale: torch.Size([256, 594, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:04:56,159 - Restoring model from epoch 85
+2024-05-07 22:05:09,612 - Epoch [85/250], Loss: -23.4220 (-23.5570, 0.1350, 0.0000)
+2024-05-07 22:05:09,612 -      ETA: 00:01:28.45
+2024-05-07 22:05:22,993 - Epoch [90/250], Loss: -23.3442 (-23.4743, 0.1302, 0.0000)
+2024-05-07 22:05:22,993 -      ETA: 00:01:25.60
+2024-05-07 22:05:23,605 - Exception occurred at epoch 91. Expected parameter loc (Tensor of shape (256, 631, 5, 8)) of distribution Normal(loc: torch.Size([256, 631, 5, 8]), scale: torch.Size([256, 631, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:05:23,605 - Restoring model from epoch 91
+2024-05-07 22:05:27,272 - Exception occurred at epoch 92. Expected parameter loc (Tensor of shape (256, 914, 5, 8)) of distribution Normal(loc: torch.Size([256, 914, 5, 8]), scale: torch.Size([256, 914, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:05:27,273 - Restoring model from epoch 92
+2024-05-07 22:05:28,008 - Exception occurred at epoch 91. Expected parameter loc (Tensor of shape (256, 631, 5, 8)) of distribution Normal(loc: torch.Size([256, 631, 5, 8]), scale: torch.Size([256, 631, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:05:28,008 - Restoring model from epoch 91
+2024-05-07 22:05:32,953 - Exception occurred at epoch 92. Expected parameter loc (Tensor of shape (256, 631, 5, 8)) of distribution Normal(loc: torch.Size([256, 631, 5, 8]), scale: torch.Size([256, 631, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:05:32,953 - Restoring model from epoch 92
+2024-05-07 22:05:46,347 - Epoch [90/250], Loss: -23.2475 (-23.3769, 0.1294, 0.0000)
+2024-05-07 22:05:46,347 -      ETA: 00:01:25.78
+2024-05-07 22:05:58,289 - Exception occurred at epoch 95. Expected parameter loc (Tensor of shape (256, 540, 5, 8)) of distribution Normal(loc: torch.Size([256, 540, 5, 8]), scale: torch.Size([256, 540, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:05:58,289 - Restoring model from epoch 95
+2024-05-07 22:06:11,700 - Epoch [95/250], Loss: -24.4883 (-24.6097, 0.1214, 0.0000)
+2024-05-07 22:06:11,700 -      ETA: 00:01:22.95
+2024-05-07 22:06:13,354 - Exception occurred at epoch 96. Expected parameter loc (Tensor of shape (256, 970, 5, 8)) of distribution Normal(loc: torch.Size([256, 970, 5, 8]), scale: torch.Size([256, 970, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:06:13,354 - Restoring model from epoch 96
+2024-05-07 22:06:18,841 - Exception occurred at epoch 98. Expected parameter loc (Tensor of shape (256, 813, 5, 8)) of distribution Normal(loc: torch.Size([256, 813, 5, 8]), scale: torch.Size([256, 813, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:06:18,841 - Restoring model from epoch 98
+2024-05-07 22:06:23,453 - Exception occurred at epoch 97. Expected parameter loc (Tensor of shape (256, 801, 5, 8)) of distribution Normal(loc: torch.Size([256, 801, 5, 8]), scale: torch.Size([256, 801, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:06:23,453 - Restoring model from epoch 97
+2024-05-07 22:06:25,403 - Exception occurred at epoch 96. Expected parameter loc (Tensor of shape (256, 660, 5, 8)) of distribution Normal(loc: torch.Size([256, 660, 5, 8]), scale: torch.Size([256, 660, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:06:25,403 - Restoring model from epoch 96
+2024-05-07 22:06:38,876 - Epoch [95/250], Loss: -23.9707 (-24.0888, 0.1181, 0.0000)
+2024-05-07 22:06:38,876 -      ETA: 00:01:23.43
+2024-05-07 22:06:42,084 - Exception occurred at epoch 97. Expected parameter loc (Tensor of shape (256, 777, 5, 8)) of distribution Normal(loc: torch.Size([256, 777, 5, 8]), scale: torch.Size([256, 777, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:06:42,085 - Restoring model from epoch 97
+2024-05-07 22:06:51,027 - Exception occurred at epoch 99. Expected parameter loc (Tensor of shape (256, 503, 5, 8)) of distribution Normal(loc: torch.Size([256, 503, 5, 8]), scale: torch.Size([256, 503, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:06:51,027 - Restoring model from epoch 99
+2024-05-07 22:06:54,109 - Exception occurred at epoch 97. Expected parameter loc (Tensor of shape (256, 652, 5, 8)) of distribution Normal(loc: torch.Size([256, 652, 5, 8]), scale: torch.Size([256, 652, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:06:54,110 - Restoring model from epoch 97
+2024-05-07 22:06:58,323 - Exception occurred at epoch 97. Expected parameter loc (Tensor of shape (256, 777, 5, 8)) of distribution Normal(loc: torch.Size([256, 777, 5, 8]), scale: torch.Size([256, 777, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:06:58,324 - Restoring model from epoch 97
+2024-05-07 22:07:11,408 - Exception occurred at epoch 95. Expected parameter loc (Tensor of shape (256, 914, 5, 8)) of distribution Normal(loc: torch.Size([256, 914, 5, 8]), scale: torch.Size([256, 914, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:07:11,408 - Restoring model from epoch 95
+2024-05-07 22:07:24,794 - Epoch [90/250], Loss: -23.1109 (-23.2326, 0.1217, 0.0000)
+2024-05-07 22:07:24,794 -      ETA: 00:01:25.75
+2024-05-07 22:07:38,184 - Epoch [95/250], Loss: -23.7031 (-23.8321, 0.1290, 0.0000)
+2024-05-07 22:07:38,184 -      ETA: 00:01:23.14
+2024-05-07 22:07:45,235 - Exception occurred at epoch 98. Expected parameter loc (Tensor of shape (256, 506, 5, 8)) of distribution Normal(loc: torch.Size([256, 506, 5, 8]), scale: torch.Size([256, 506, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:07:45,235 - Restoring model from epoch 98
+2024-05-07 22:07:47,720 - Exception occurred at epoch 96. Expected parameter loc (Tensor of shape (256, 631, 5, 8)) of distribution Normal(loc: torch.Size([256, 631, 5, 8]), scale: torch.Size([256, 631, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:07:47,720 - Restoring model from epoch 96
+2024-05-07 22:07:50,209 - Exception occurred at epoch 96. Expected parameter loc (Tensor of shape (256, 801, 5, 8)) of distribution Normal(loc: torch.Size([256, 801, 5, 8]), scale: torch.Size([256, 801, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:07:50,209 - Restoring model from epoch 96
+2024-05-07 22:07:56,482 - Exception occurred at epoch 98. Expected parameter loc (Tensor of shape (256, 665, 5, 8)) of distribution Normal(loc: torch.Size([256, 665, 5, 8]), scale: torch.Size([256, 665, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:07:56,482 - Restoring model from epoch 98
+2024-05-07 22:08:09,871 - Epoch [95/250], Loss: -24.2429 (-24.3752, 0.1323, 0.0000)
+2024-05-07 22:08:09,871 -      ETA: 00:01:22.77
+2024-05-07 22:08:23,254 - Epoch [100/250], Loss: -24.1325 (-24.2644, 0.1319, 0.0000)
+2024-05-07 22:08:23,254 -      ETA: 00:01:20.40
+2024-05-07 22:08:23,307 - == NETWORK SAVED
+
+2024-05-07 22:08:24,150 - Exception occurred at epoch 101. Expected parameter loc (Tensor of shape (256, 391, 5, 8)) of distribution Normal(loc: torch.Size([256, 391, 5, 8]), scale: torch.Size([256, 391, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:08:24,150 - Restoring model from epoch 101
+2024-05-07 22:08:26,854 - Exception occurred at epoch 101. Expected parameter loc (Tensor of shape (256, 577, 5, 8)) of distribution Normal(loc: torch.Size([256, 577, 5, 8]), scale: torch.Size([256, 577, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:08:26,854 - Restoring model from epoch 101
+2024-05-07 22:08:31,949 - Exception occurred at epoch 102. Expected parameter loc (Tensor of shape (256, 631, 5, 8)) of distribution Normal(loc: torch.Size([256, 631, 5, 8]), scale: torch.Size([256, 631, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:08:31,950 - Restoring model from epoch 102
+2024-05-07 22:08:38,196 - Exception occurred at epoch 103. Expected parameter loc (Tensor of shape (256, 481, 5, 8)) of distribution Normal(loc: torch.Size([256, 481, 5, 8]), scale: torch.Size([256, 481, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:08:38,196 - Restoring model from epoch 103
+2024-05-07 22:08:51,257 - Exception occurred at epoch 100. Expected parameter loc (Tensor of shape (256, 660, 5, 8)) of distribution Normal(loc: torch.Size([256, 660, 5, 8]), scale: torch.Size([256, 660, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:08:51,257 - Restoring model from epoch 100
+2024-05-07 22:09:04,658 - Epoch [100/250], Loss: -24.0585 (-24.1911, 0.1326, 0.0000)
+2024-05-07 22:09:04,659 -      ETA: 00:01:20.31
+2024-05-07 22:09:04,740 - == NETWORK SAVED
+
+2024-05-07 22:09:05,814 - Exception occurred at epoch 101. Expected parameter loc (Tensor of shape (256, 623, 5, 8)) of distribution Normal(loc: torch.Size([256, 623, 5, 8]), scale: torch.Size([256, 623, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:09:05,814 - Restoring model from epoch 101
+2024-05-07 22:09:07,278 - Exception occurred at epoch 101. Expected parameter loc (Tensor of shape (256, 631, 5, 8)) of distribution Normal(loc: torch.Size([256, 631, 5, 8]), scale: torch.Size([256, 631, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:09:07,278 - Restoring model from epoch 101
+2024-05-07 22:09:07,722 - Exception occurred at epoch 101. Expected parameter loc (Tensor of shape (256, 631, 5, 8)) of distribution Normal(loc: torch.Size([256, 631, 5, 8]), scale: torch.Size([256, 631, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:09:07,722 - Restoring model from epoch 101
+2024-05-07 22:09:08,971 - Exception occurred at epoch 101. Expected parameter loc (Tensor of shape (256, 476, 5, 8)) of distribution Normal(loc: torch.Size([256, 476, 5, 8]), scale: torch.Size([256, 476, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:09:08,972 - Restoring model from epoch 101
+2024-05-07 22:09:18,352 - Exception occurred at epoch 99. Expected parameter loc (Tensor of shape (256, 631, 5, 8)) of distribution Normal(loc: torch.Size([256, 631, 5, 8]), scale: torch.Size([256, 631, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:09:18,353 - Restoring model from epoch 99
+2024-05-07 22:09:27,588 - Exception occurred at epoch 94. Expected parameter loc (Tensor of shape (256, 552, 5, 8)) of distribution Normal(loc: torch.Size([256, 552, 5, 8]), scale: torch.Size([256, 552, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:09:27,588 - Restoring model from epoch 94
+2024-05-07 22:09:41,007 - Epoch [95/250], Loss: -24.5920 (-24.7138, 0.1217, 0.0000)
+2024-05-07 22:09:41,007 -      ETA: 00:01:23.13
+2024-05-07 22:09:54,419 - Epoch [100/250], Loss: -25.0928 (-25.2290, 0.1362, 0.0000)
+2024-05-07 22:09:54,419 -      ETA: 00:01:20.57
+2024-05-07 22:09:54,496 - == NETWORK SAVED
+
+2024-05-07 22:09:55,324 - Exception occurred at epoch 101. Expected parameter loc (Tensor of shape (256, 481, 5, 8)) of distribution Normal(loc: torch.Size([256, 481, 5, 8]), scale: torch.Size([256, 481, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:09:55,324 - Restoring model from epoch 101
+2024-05-07 22:09:57,320 - Exception occurred at epoch 101. Expected parameter loc (Tensor of shape (256, 631, 5, 8)) of distribution Normal(loc: torch.Size([256, 631, 5, 8]), scale: torch.Size([256, 631, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:09:57,320 - Restoring model from epoch 101
+2024-05-07 22:09:58,775 - Exception occurred at epoch 101. Expected parameter loc (Tensor of shape (256, 481, 5, 8)) of distribution Normal(loc: torch.Size([256, 481, 5, 8]), scale: torch.Size([256, 481, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:09:58,776 - Restoring model from epoch 101
+2024-05-07 22:10:00,394 - Exception occurred at epoch 101. Expected parameter loc (Tensor of shape (256, 854, 5, 8)) of distribution Normal(loc: torch.Size([256, 854, 5, 8]), scale: torch.Size([256, 854, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:10:00,394 - Restoring model from epoch 101
+2024-05-07 22:10:06,360 - Exception occurred at epoch 98. Expected parameter loc (Tensor of shape (256, 631, 5, 8)) of distribution Normal(loc: torch.Size([256, 631, 5, 8]), scale: torch.Size([256, 631, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:10:06,361 - Restoring model from epoch 98
+2024-05-07 22:10:10,336 - Exception occurred at epoch 97. Expected parameter loc (Tensor of shape (256, 580, 5, 8)) of distribution Normal(loc: torch.Size([256, 580, 5, 8]), scale: torch.Size([256, 580, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:10:10,336 - Restoring model from epoch 97
+2024-05-07 22:10:23,770 - Epoch [100/250], Loss: -24.7326 (-24.8527, 0.1201, 0.0000)
+2024-05-07 22:10:23,770 -      ETA: 00:01:20.48
+2024-05-07 22:10:23,830 - == NETWORK SAVED
+
+2024-05-07 22:10:25,345 - Exception occurred at epoch 101. Expected parameter loc (Tensor of shape (256, 659, 5, 8)) of distribution Normal(loc: torch.Size([256, 659, 5, 8]), scale: torch.Size([256, 659, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:10:25,345 - Restoring model from epoch 101
+2024-05-07 22:10:29,809 - Exception occurred at epoch 102. Expected parameter loc (Tensor of shape (256, 391, 5, 8)) of distribution Normal(loc: torch.Size([256, 391, 5, 8]), scale: torch.Size([256, 391, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:10:29,809 - Restoring model from epoch 102
+2024-05-07 22:10:32,172 - Exception occurred at epoch 101. Expected parameter loc (Tensor of shape (256, 462, 5, 8)) of distribution Normal(loc: torch.Size([256, 462, 5, 8]), scale: torch.Size([256, 462, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:10:32,172 - Restoring model from epoch 101
+2024-05-07 22:10:35,173 - Exception occurred at epoch 102. Expected parameter loc (Tensor of shape (256, 801, 5, 8)) of distribution Normal(loc: torch.Size([256, 801, 5, 8]), scale: torch.Size([256, 801, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:10:35,174 - Restoring model from epoch 102
+2024-05-07 22:10:42,015 - Exception occurred at epoch 88. Expected parameter loc (Tensor of shape (256, 575, 5, 8)) of distribution Normal(loc: torch.Size([256, 575, 5, 8]), scale: torch.Size([256, 575, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:10:42,016 - Restoring model from epoch 88
+2024-05-07 22:10:55,399 - Epoch [85/250], Loss: -24.1962 (-24.3297, 0.1335, 0.0000)
+2024-05-07 22:10:55,399 -      ETA: 00:01:28.24
+2024-05-07 22:11:02,139 - Exception occurred at epoch 88. Expected parameter loc (Tensor of shape (256, 631, 5, 8)) of distribution Normal(loc: torch.Size([256, 631, 5, 8]), scale: torch.Size([256, 631, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:11:02,140 - Restoring model from epoch 88
+2024-05-07 22:11:15,574 - Epoch [90/250], Loss: -24.0707 (-24.2002, 0.1295, 0.0000)
+2024-05-07 22:11:15,574 -      ETA: 00:01:25.84
+2024-05-07 22:11:17,023 - Exception occurred at epoch 91. Expected parameter loc (Tensor of shape (256, 518, 5, 8)) of distribution Normal(loc: torch.Size([256, 518, 5, 8]), scale: torch.Size([256, 518, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:11:17,023 - Restoring model from epoch 91
+2024-05-07 22:11:17,495 - Exception occurred at epoch 91. Expected parameter loc (Tensor of shape (256, 462, 5, 8)) of distribution Normal(loc: torch.Size([256, 462, 5, 8]), scale: torch.Size([256, 462, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:11:17,495 - Restoring model from epoch 91
+2024-05-07 22:11:23,860 - Exception occurred at epoch 93. Expected parameter loc (Tensor of shape (256, 552, 5, 8)) of distribution Normal(loc: torch.Size([256, 552, 5, 8]), scale: torch.Size([256, 552, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:11:23,861 - Restoring model from epoch 93
+2024-05-07 22:11:28,735 - Exception occurred at epoch 92. Expected parameter loc (Tensor of shape (256, 631, 5, 8)) of distribution Normal(loc: torch.Size([256, 631, 5, 8]), scale: torch.Size([256, 631, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:11:28,736 - Restoring model from epoch 92
+2024-05-07 22:11:42,135 - Epoch [90/250], Loss: -24.7138 (-24.8457, 0.1319, 0.0000)
+2024-05-07 22:11:42,135 -      ETA: 00:01:25.78
+2024-05-07 22:11:48,458 - Exception occurred at epoch 93. Expected parameter loc (Tensor of shape (256, 729, 5, 8)) of distribution Normal(loc: torch.Size([256, 729, 5, 8]), scale: torch.Size([256, 729, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:11:48,459 - Restoring model from epoch 93
+2024-05-07 22:11:53,845 - Exception occurred at epoch 92. Expected parameter loc (Tensor of shape (256, 462, 5, 8)) of distribution Normal(loc: torch.Size([256, 462, 5, 8]), scale: torch.Size([256, 462, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:11:53,845 - Restoring model from epoch 92
+2024-05-07 22:12:02,165 - Exception occurred at epoch 94. Expected parameter loc (Tensor of shape (256, 660, 5, 8)) of distribution Normal(loc: torch.Size([256, 660, 5, 8]), scale: torch.Size([256, 660, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:12:02,165 - Restoring model from epoch 94
+2024-05-07 22:12:08,591 - Exception occurred at epoch 93. Expected parameter loc (Tensor of shape (256, 801, 5, 8)) of distribution Normal(loc: torch.Size([256, 801, 5, 8]), scale: torch.Size([256, 801, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:12:08,591 - Restoring model from epoch 93
+2024-05-07 22:12:15,618 - Exception occurred at epoch 88. Expected parameter loc (Tensor of shape (256, 660, 5, 8)) of distribution Normal(loc: torch.Size([256, 660, 5, 8]), scale: torch.Size([256, 660, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:12:15,618 - Restoring model from epoch 88
+2024-05-07 22:12:28,999 - Epoch [85/250], Loss: -24.1672 (-24.3006, 0.1334, 0.0000)
+2024-05-07 22:12:29,000 -      ETA: 00:01:28.19
+2024-05-07 22:12:42,359 - Epoch [90/250], Loss: -20.8074 (-20.9363, 0.1289, 0.0000)
+2024-05-07 22:12:42,359 -      ETA: 00:01:25.56
+2024-05-07 22:12:55,720 - Epoch [95/250], Loss: -24.1038 (-24.2323, 0.1285, 0.0000)
+2024-05-07 22:12:55,721 -      ETA: 00:01:22.89
+2024-05-07 22:12:58,278 - Exception occurred at epoch 96. Expected parameter loc (Tensor of shape (256, 854, 5, 8)) of distribution Normal(loc: torch.Size([256, 854, 5, 8]), scale: torch.Size([256, 854, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:12:58,278 - Restoring model from epoch 96
+2024-05-07 22:13:03,127 - Exception occurred at epoch 97. Expected parameter loc (Tensor of shape (256, 516, 5, 8)) of distribution Normal(loc: torch.Size([256, 516, 5, 8]), scale: torch.Size([256, 516, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:13:03,128 - Restoring model from epoch 97
+2024-05-07 22:13:05,502 - Exception occurred at epoch 96. Expected parameter loc (Tensor of shape (256, 729, 5, 8)) of distribution Normal(loc: torch.Size([256, 729, 5, 8]), scale: torch.Size([256, 729, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:13:05,502 - Restoring model from epoch 96
+2024-05-07 22:13:13,457 - Exception occurred at epoch 98. Expected parameter loc (Tensor of shape (256, 553, 5, 8)) of distribution Normal(loc: torch.Size([256, 553, 5, 8]), scale: torch.Size([256, 553, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:13:13,457 - Restoring model from epoch 98
+2024-05-07 22:13:24,767 - Exception occurred at epoch 95. Expected parameter loc (Tensor of shape (256, 610, 5, 8)) of distribution Normal(loc: torch.Size([256, 610, 5, 8]), scale: torch.Size([256, 610, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:13:24,767 - Restoring model from epoch 95
+2024-05-07 22:13:38,181 - Epoch [95/250], Loss: -24.2877 (-24.4217, 0.1340, 0.0000)
+2024-05-07 22:13:38,181 -      ETA: 00:01:22.98
+2024-05-07 22:13:43,574 - Exception occurred at epoch 98. Expected parameter loc (Tensor of shape (256, 553, 5, 8)) of distribution Normal(loc: torch.Size([256, 553, 5, 8]), scale: torch.Size([256, 553, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:13:43,574 - Restoring model from epoch 98
+2024-05-07 22:13:50,497 - Exception occurred at epoch 98. Expected parameter loc (Tensor of shape (256, 631, 5, 8)) of distribution Normal(loc: torch.Size([256, 631, 5, 8]), scale: torch.Size([256, 631, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:13:50,497 - Restoring model from epoch 98
+2024-05-07 22:13:55,580 - Exception occurred at epoch 97. Expected parameter loc (Tensor of shape (256, 854, 5, 8)) of distribution Normal(loc: torch.Size([256, 854, 5, 8]), scale: torch.Size([256, 854, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:13:55,580 - Restoring model from epoch 97
+2024-05-07 22:13:58,675 - Exception occurred at epoch 97. Expected parameter loc (Tensor of shape (256, 503, 5, 8)) of distribution Normal(loc: torch.Size([256, 503, 5, 8]), scale: torch.Size([256, 503, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:13:58,676 - Restoring model from epoch 97
+2024-05-07 22:14:04,391 - Exception occurred at epoch 93. Expected parameter loc (Tensor of shape (256, 518, 5, 8)) of distribution Normal(loc: torch.Size([256, 518, 5, 8]), scale: torch.Size([256, 518, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:14:04,391 - Restoring model from epoch 93
+2024-05-07 22:14:17,797 - Epoch [90/250], Loss: -24.4780 (-24.6047, 0.1267, 0.0000)
+2024-05-07 22:14:17,797 -      ETA: 00:01:25.66
+2024-05-07 22:14:31,188 - Epoch [95/250], Loss: -24.8177 (-24.9544, 0.1367, 0.0000)
+2024-05-07 22:14:31,188 -      ETA: 00:01:23.12
+2024-05-07 22:14:33,517 - Exception occurred at epoch 96. Expected parameter loc (Tensor of shape (256, 575, 5, 8)) of distribution Normal(loc: torch.Size([256, 575, 5, 8]), scale: torch.Size([256, 575, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:14:33,517 - Restoring model from epoch 96
+2024-05-07 22:14:35,028 - Exception occurred at epoch 96. Expected parameter loc (Tensor of shape (256, 610, 5, 8)) of distribution Normal(loc: torch.Size([256, 610, 5, 8]), scale: torch.Size([256, 610, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:14:35,028 - Restoring model from epoch 96
+2024-05-07 22:14:38,994 - Exception occurred at epoch 97. Expected parameter loc (Tensor of shape (256, 506, 5, 8)) of distribution Normal(loc: torch.Size([256, 506, 5, 8]), scale: torch.Size([256, 506, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:14:38,994 - Restoring model from epoch 97
+2024-05-07 22:14:40,079 - Exception occurred at epoch 96. Expected parameter loc (Tensor of shape (256, 631, 5, 8)) of distribution Normal(loc: torch.Size([256, 631, 5, 8]), scale: torch.Size([256, 631, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:14:40,079 - Restoring model from epoch 96
+2024-05-07 22:14:44,795 - Exception occurred at epoch 92. Expected parameter loc (Tensor of shape (256, 631, 5, 8)) of distribution Normal(loc: torch.Size([256, 631, 5, 8]), scale: torch.Size([256, 631, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:14:44,795 - Restoring model from epoch 92
+2024-05-07 22:14:52,190 - Exception occurred at epoch 93. Expected parameter loc (Tensor of shape (256, 631, 5, 8)) of distribution Normal(loc: torch.Size([256, 631, 5, 8]), scale: torch.Size([256, 631, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:14:52,190 - Restoring model from epoch 93
+2024-05-07 22:15:05,638 - Epoch [95/250], Loss: -24.5725 (-24.7005, 0.1280, 0.0000)
+2024-05-07 22:15:05,638 -      ETA: 00:01:23.08
+2024-05-07 22:15:15,099 - Exception occurred at epoch 99. Expected parameter loc (Tensor of shape (256, 580, 5, 8)) of distribution Normal(loc: torch.Size([256, 580, 5, 8]), scale: torch.Size([256, 580, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:15:15,100 - Restoring model from epoch 99
+2024-05-07 22:15:28,065 - Exception occurred at epoch 100. Expected parameter loc (Tensor of shape (256, 623, 5, 8)) of distribution Normal(loc: torch.Size([256, 623, 5, 8]), scale: torch.Size([256, 623, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:15:28,065 - Restoring model from epoch 100
+2024-05-07 22:15:41,144 - Exception occurred at epoch 100. Expected parameter loc (Tensor of shape (256, 660, 5, 8)) of distribution Normal(loc: torch.Size([256, 660, 5, 8]), scale: torch.Size([256, 660, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:15:41,144 - Restoring model from epoch 100
+2024-05-07 22:15:54,541 - Epoch [100/250], Loss: -25.4059 (-25.5361, 0.1303, 0.0000)
+2024-05-07 22:15:54,542 -      ETA: 00:01:20.34
+2024-05-07 22:15:54,591 - == NETWORK SAVED
+
+2024-05-07 22:15:55,284 - Exception occurred at epoch 101. Expected parameter loc (Tensor of shape (256, 553, 5, 8)) of distribution Normal(loc: torch.Size([256, 553, 5, 8]), scale: torch.Size([256, 553, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:15:55,284 - Restoring model from epoch 101
+2024-05-07 22:15:55,972 - Exception occurred at epoch 101. Expected parameter loc (Tensor of shape (256, 506, 5, 8)) of distribution Normal(loc: torch.Size([256, 506, 5, 8]), scale: torch.Size([256, 506, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:15:55,972 - Restoring model from epoch 101
+2024-05-07 22:15:57,623 - Exception occurred at epoch 101. Expected parameter loc (Tensor of shape (256, 623, 5, 8)) of distribution Normal(loc: torch.Size([256, 623, 5, 8]), scale: torch.Size([256, 623, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:15:57,623 - Restoring model from epoch 101
+2024-05-07 22:16:00,000 - Exception occurred at epoch 101. Expected parameter loc (Tensor of shape (256, 813, 5, 8)) of distribution Normal(loc: torch.Size([256, 813, 5, 8]), scale: torch.Size([256, 813, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:16:00,000 - Restoring model from epoch 101
+2024-05-07 22:16:13,377 - Epoch [90/250], Loss: -24.6680 (-24.8009, 0.1329, 0.0000)
+2024-05-07 22:16:13,377 -      ETA: 00:01:25.64
+2024-05-07 22:16:26,750 - Epoch [95/250], Loss: -24.0622 (-24.1830, 0.1208, 0.0000)
+2024-05-07 22:16:26,750 -      ETA: 00:01:22.90
+2024-05-07 22:16:38,723 - Exception occurred at epoch 100. Expected parameter loc (Tensor of shape (256, 631, 5, 8)) of distribution Normal(loc: torch.Size([256, 631, 5, 8]), scale: torch.Size([256, 631, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:16:38,723 - Restoring model from epoch 100
+2024-05-07 22:16:48,211 - Exception occurred at epoch 99. Expected parameter loc (Tensor of shape (256, 440, 5, 8)) of distribution Normal(loc: torch.Size([256, 440, 5, 8]), scale: torch.Size([256, 440, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:16:48,211 - Restoring model from epoch 99
+2024-05-07 22:16:56,127 - Exception occurred at epoch 98. Expected parameter loc (Tensor of shape (256, 631, 5, 8)) of distribution Normal(loc: torch.Size([256, 631, 5, 8]), scale: torch.Size([256, 631, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:16:56,127 - Restoring model from epoch 98
+2024-05-07 22:17:03,841 - Exception occurred at epoch 98. Expected parameter loc (Tensor of shape (256, 970, 5, 8)) of distribution Normal(loc: torch.Size([256, 970, 5, 8]), scale: torch.Size([256, 970, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:17:03,841 - Restoring model from epoch 98
+2024-05-07 22:17:17,320 - Epoch [95/250], Loss: -24.7685 (-24.8895, 0.1210, 0.0000)
+2024-05-07 22:17:17,320 -      ETA: 00:01:23.38
+2024-05-07 22:17:30,754 - Epoch [100/250], Loss: -25.2290 (-25.3609, 0.1320, 0.0000)
+2024-05-07 22:17:30,754 -      ETA: 00:01:20.70
+2024-05-07 22:17:30,806 - == NETWORK SAVED
+
+2024-05-07 22:17:32,012 - Exception occurred at epoch 101. Expected parameter loc (Tensor of shape (256, 503, 5, 8)) of distribution Normal(loc: torch.Size([256, 503, 5, 8]), scale: torch.Size([256, 503, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:17:32,013 - Restoring model from epoch 101
+2024-05-07 22:17:32,364 - Exception occurred at epoch 101. Expected parameter loc (Tensor of shape (256, 801, 5, 8)) of distribution Normal(loc: torch.Size([256, 801, 5, 8]), scale: torch.Size([256, 801, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:17:32,364 - Restoring model from epoch 101
+2024-05-07 22:17:33,066 - Exception occurred at epoch 101. Expected parameter loc (Tensor of shape (256, 503, 5, 8)) of distribution Normal(loc: torch.Size([256, 503, 5, 8]), scale: torch.Size([256, 503, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:17:33,066 - Restoring model from epoch 101
+2024-05-07 22:17:34,936 - Exception occurred at epoch 101. Expected parameter loc (Tensor of shape (256, 506, 5, 8)) of distribution Normal(loc: torch.Size([256, 506, 5, 8]), scale: torch.Size([256, 506, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:17:34,937 - Restoring model from epoch 101
+2024-05-07 22:17:39,403 - Exception occurred at epoch 97. Expected parameter loc (Tensor of shape (256, 577, 5, 8)) of distribution Normal(loc: torch.Size([256, 577, 5, 8]), scale: torch.Size([256, 577, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:17:39,403 - Restoring model from epoch 97
+2024-05-07 22:17:52,764 - Epoch [100/250], Loss: -24.4222 (-24.5537, 0.1315, 0.0000)
+2024-05-07 22:17:52,764 -      ETA: 00:01:20.03
+2024-05-07 22:17:52,813 - == NETWORK SAVED
+
+2024-05-07 22:17:52,974 - Exception occurred at epoch 101. Expected parameter loc (Tensor of shape (256, 481, 5, 8)) of distribution Normal(loc: torch.Size([256, 481, 5, 8]), scale: torch.Size([256, 481, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:17:52,974 - Restoring model from epoch 101
+2024-05-07 22:17:55,604 - Exception occurred at epoch 101. Expected parameter loc (Tensor of shape (256, 552, 5, 8)) of distribution Normal(loc: torch.Size([256, 552, 5, 8]), scale: torch.Size([256, 552, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:17:55,604 - Restoring model from epoch 101
+2024-05-07 22:17:55,851 - Exception occurred at epoch 101. Expected parameter loc (Tensor of shape (256, 440, 5, 8)) of distribution Normal(loc: torch.Size([256, 440, 5, 8]), scale: torch.Size([256, 440, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:17:55,851 - Restoring model from epoch 101
+2024-05-07 22:17:56,651 - Exception occurred at epoch 101. Expected parameter loc (Tensor of shape (256, 580, 5, 8)) of distribution Normal(loc: torch.Size([256, 580, 5, 8]), scale: torch.Size([256, 580, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:17:56,652 - Restoring model from epoch 101
+2024-05-07 22:17:58,350 - Exception occurred at epoch 96. Expected parameter loc (Tensor of shape (256, 553, 5, 8)) of distribution Normal(loc: torch.Size([256, 553, 5, 8]), scale: torch.Size([256, 553, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:17:58,351 - Restoring model from epoch 96
+2024-05-07 22:18:10,352 - Exception occurred at epoch 95. Expected parameter loc (Tensor of shape (256, 631, 5, 8)) of distribution Normal(loc: torch.Size([256, 631, 5, 8]), scale: torch.Size([256, 631, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:18:10,352 - Restoring model from epoch 95
+2024-05-07 22:18:23,949 - Epoch [95/250], Loss: -24.5930 (-24.7253, 0.1323, 0.0000)
+2024-05-07 22:18:23,950 -      ETA: 00:01:24.28
+2024-05-07 22:18:33,895 - Exception occurred at epoch 99. Expected parameter loc (Tensor of shape (256, 577, 5, 8)) of distribution Normal(loc: torch.Size([256, 577, 5, 8]), scale: torch.Size([256, 577, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:18:33,895 - Restoring model from epoch 99
+2024-05-07 22:18:46,811 - Exception occurred at epoch 100. Expected parameter loc (Tensor of shape (256, 631, 5, 8)) of distribution Normal(loc: torch.Size([256, 631, 5, 8]), scale: torch.Size([256, 631, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:18:46,811 - Restoring model from epoch 100
+2024-05-07 22:18:59,925 - Exception occurred at epoch 100. Expected parameter loc (Tensor of shape (256, 552, 5, 8)) of distribution Normal(loc: torch.Size([256, 552, 5, 8]), scale: torch.Size([256, 552, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:18:59,925 - Restoring model from epoch 100
+2024-05-07 22:19:01,844 - Exception occurred at epoch 96. Expected parameter loc (Tensor of shape (256, 854, 5, 8)) of distribution Normal(loc: torch.Size([256, 854, 5, 8]), scale: torch.Size([256, 854, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:19:01,844 - Restoring model from epoch 96
+2024-05-07 22:19:15,200 - Epoch [90/250], Loss: -24.2027 (-24.3358, 0.1331, 0.0000)
+2024-05-07 22:19:15,200 -      ETA: 00:01:25.48
+2024-05-07 22:19:28,382 - Exception occurred at epoch 95. Expected parameter loc (Tensor of shape (256, 577, 5, 8)) of distribution Normal(loc: torch.Size([256, 577, 5, 8]), scale: torch.Size([256, 577, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:19:28,382 - Restoring model from epoch 95
+2024-05-07 22:19:41,780 - Epoch [95/250], Loss: -24.7196 (-24.8489, 0.1293, 0.0000)
+2024-05-07 22:19:41,780 -      ETA: 00:01:22.91
+2024-05-07 22:19:42,468 - Exception occurred at epoch 96. Expected parameter loc (Tensor of shape (256, 914, 5, 8)) of distribution Normal(loc: torch.Size([256, 914, 5, 8]), scale: torch.Size([256, 914, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:19:42,468 - Restoring model from epoch 96
+2024-05-07 22:19:43,224 - Exception occurred at epoch 96. Expected parameter loc (Tensor of shape (256, 659, 5, 8)) of distribution Normal(loc: torch.Size([256, 659, 5, 8]), scale: torch.Size([256, 659, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:19:43,224 - Restoring model from epoch 96
+2024-05-07 22:19:44,763 - Exception occurred at epoch 96. Expected parameter loc (Tensor of shape (256, 813, 5, 8)) of distribution Normal(loc: torch.Size([256, 813, 5, 8]), scale: torch.Size([256, 813, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:19:44,764 - Restoring model from epoch 96
+2024-05-07 22:19:49,610 - Exception occurred at epoch 97. Expected parameter loc (Tensor of shape (256, 594, 5, 8)) of distribution Normal(loc: torch.Size([256, 594, 5, 8]), scale: torch.Size([256, 594, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:19:49,610 - Restoring model from epoch 97
+2024-05-07 22:20:02,878 - Exception occurred at epoch 95. Expected parameter loc (Tensor of shape (256, 516, 5, 8)) of distribution Normal(loc: torch.Size([256, 516, 5, 8]), scale: torch.Size([256, 516, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:20:02,878 - Restoring model from epoch 95
+2024-05-07 22:20:16,270 - Epoch [95/250], Loss: -24.8620 (-24.9837, 0.1217, 0.0000)
+2024-05-07 22:20:16,271 -      ETA: 00:01:22.89
+2024-05-07 22:20:20,903 - Exception occurred at epoch 97. Expected parameter loc (Tensor of shape (256, 592, 5, 8)) of distribution Normal(loc: torch.Size([256, 592, 5, 8]), scale: torch.Size([256, 592, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:20:20,903 - Restoring model from epoch 97
+2024-05-07 22:20:25,671 - Exception occurred at epoch 97. Expected parameter loc (Tensor of shape (256, 610, 5, 8)) of distribution Normal(loc: torch.Size([256, 610, 5, 8]), scale: torch.Size([256, 610, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:20:25,671 - Restoring model from epoch 97
+2024-05-07 22:20:29,342 - Exception occurred at epoch 97. Expected parameter loc (Tensor of shape (256, 513, 5, 8)) of distribution Normal(loc: torch.Size([256, 513, 5, 8]), scale: torch.Size([256, 513, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:20:29,342 - Restoring model from epoch 97
+2024-05-07 22:20:34,168 - Exception occurred at epoch 97. Expected parameter loc (Tensor of shape (256, 970, 5, 8)) of distribution Normal(loc: torch.Size([256, 970, 5, 8]), scale: torch.Size([256, 970, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:20:34,168 - Restoring model from epoch 97
+2024-05-07 22:20:47,552 - Epoch [80/250], Loss: -24.3215 (-24.4554, 0.1340, 0.0000)
+2024-05-07 22:20:47,552 -      ETA: 00:01:30.81
+2024-05-07 22:21:00,908 - Epoch [85/250], Loss: -24.1829 (-24.3167, 0.1339, 0.0000)
+2024-05-07 22:21:00,908 -      ETA: 00:01:28.09
+2024-05-07 22:21:14,242 - Epoch [90/250], Loss: -23.6990 (-23.8294, 0.1304, 0.0000)
+2024-05-07 22:21:14,242 -      ETA: 00:01:25.39
+2024-05-07 22:21:27,577 - Epoch [95/250], Loss: -24.5715 (-24.7135, 0.1420, 0.0000)
+2024-05-07 22:21:27,577 -      ETA: 00:01:22.77
+2024-05-07 22:21:39,368 - Exception occurred at epoch 100. Expected parameter loc (Tensor of shape (256, 660, 5, 8)) of distribution Normal(loc: torch.Size([256, 660, 5, 8]), scale: torch.Size([256, 660, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:21:39,368 - Restoring model from epoch 100
+2024-05-07 22:21:47,447 - Exception occurred at epoch 99. Expected parameter loc (Tensor of shape (256, 516, 5, 8)) of distribution Normal(loc: torch.Size([256, 516, 5, 8]), scale: torch.Size([256, 516, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:21:47,447 - Restoring model from epoch 99
+2024-05-07 22:21:54,661 - Exception occurred at epoch 98. Expected parameter loc (Tensor of shape (256, 553, 5, 8)) of distribution Normal(loc: torch.Size([256, 553, 5, 8]), scale: torch.Size([256, 553, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:21:54,661 - Restoring model from epoch 98
+2024-05-07 22:22:02,507 - Exception occurred at epoch 98. Expected parameter loc (Tensor of shape (256, 801, 5, 8)) of distribution Normal(loc: torch.Size([256, 801, 5, 8]), scale: torch.Size([256, 801, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:22:02,508 - Restoring model from epoch 98
+2024-05-07 22:22:16,322 - Epoch [95/250], Loss: -24.6045 (-24.7383, 0.1338, 0.0000)
+2024-05-07 22:22:16,323 -      ETA: 00:01:25.74
+2024-05-07 22:22:30,118 - Epoch [100/250], Loss: -24.0475 (-24.1787, 0.1312, 0.0000)
+2024-05-07 22:22:30,119 -      ETA: 00:01:22.84
+2024-05-07 22:22:30,169 - == NETWORK SAVED
+
+2024-05-07 22:22:34,475 - Exception occurred at epoch 102. Expected parameter loc (Tensor of shape (256, 577, 5, 8)) of distribution Normal(loc: torch.Size([256, 577, 5, 8]), scale: torch.Size([256, 577, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:22:34,475 - Restoring model from epoch 102
+2024-05-07 22:22:34,637 - Exception occurred at epoch 101. Expected parameter loc (Tensor of shape (256, 659, 5, 8)) of distribution Normal(loc: torch.Size([256, 659, 5, 8]), scale: torch.Size([256, 659, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:22:34,637 - Restoring model from epoch 101
+2024-05-07 22:22:35,207 - Exception occurred at epoch 101. Expected parameter loc (Tensor of shape (256, 659, 5, 8)) of distribution Normal(loc: torch.Size([256, 659, 5, 8]), scale: torch.Size([256, 659, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:22:35,208 - Restoring model from epoch 101
+2024-05-07 22:22:37,251 - Exception occurred at epoch 101. Expected parameter loc (Tensor of shape (256, 553, 5, 8)) of distribution Normal(loc: torch.Size([256, 553, 5, 8]), scale: torch.Size([256, 553, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:22:37,252 - Restoring model from epoch 101
+2024-05-07 22:22:47,159 - Exception occurred at epoch 99. Expected parameter loc (Tensor of shape (256, 594, 5, 8)) of distribution Normal(loc: torch.Size([256, 594, 5, 8]), scale: torch.Size([256, 594, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:22:47,159 - Restoring model from epoch 99
+2024-05-07 22:22:55,183 - Exception occurred at epoch 98. Expected parameter loc (Tensor of shape (256, 553, 5, 8)) of distribution Normal(loc: torch.Size([256, 553, 5, 8]), scale: torch.Size([256, 553, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:22:55,183 - Restoring model from epoch 98
+2024-05-07 22:23:02,008 - Exception occurred at epoch 98. Expected parameter loc (Tensor of shape (256, 729, 5, 8)) of distribution Normal(loc: torch.Size([256, 729, 5, 8]), scale: torch.Size([256, 729, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:23:02,008 - Restoring model from epoch 98
+2024-05-07 22:23:15,432 - Epoch [95/250], Loss: -24.6543 (-24.7837, 0.1294, 0.0000)
+2024-05-07 22:23:15,433 -      ETA: 00:01:23.29
+2024-05-07 22:23:23,799 - Exception occurred at epoch 99. Expected parameter loc (Tensor of shape (256, 610, 5, 8)) of distribution Normal(loc: torch.Size([256, 610, 5, 8]), scale: torch.Size([256, 610, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:23:23,799 - Restoring model from epoch 99
+2024-05-07 22:23:25,751 - Exception occurred at epoch 96. Expected parameter loc (Tensor of shape (256, 631, 5, 8)) of distribution Normal(loc: torch.Size([256, 631, 5, 8]), scale: torch.Size([256, 631, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:23:25,751 - Restoring model from epoch 96
+2024-05-07 22:23:30,520 - Exception occurred at epoch 97. Expected parameter loc (Tensor of shape (256, 813, 5, 8)) of distribution Normal(loc: torch.Size([256, 813, 5, 8]), scale: torch.Size([256, 813, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:23:30,520 - Restoring model from epoch 97
+2024-05-07 22:23:35,199 - Exception occurred at epoch 97. Expected parameter loc (Tensor of shape (256, 552, 5, 8)) of distribution Normal(loc: torch.Size([256, 552, 5, 8]), scale: torch.Size([256, 552, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:23:35,200 - Restoring model from epoch 97
+2024-05-07 22:23:48,615 - Epoch [95/250], Loss: -24.8112 (-24.9418, 0.1305, 0.0000)
+2024-05-07 22:23:48,615 -      ETA: 00:01:23.10
+2024-05-07 22:23:55,586 - Exception occurred at epoch 98. Expected parameter loc (Tensor of shape (256, 813, 5, 8)) of distribution Normal(loc: torch.Size([256, 813, 5, 8]), scale: torch.Size([256, 813, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:23:55,586 - Restoring model from epoch 98
+2024-05-07 22:24:01,617 - Exception occurred at epoch 98. Expected parameter loc (Tensor of shape (256, 914, 5, 8)) of distribution Normal(loc: torch.Size([256, 914, 5, 8]), scale: torch.Size([256, 914, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:24:01,617 - Restoring model from epoch 98
+2024-05-07 22:24:07,102 - Exception occurred at epoch 98. Expected parameter loc (Tensor of shape (256, 631, 5, 8)) of distribution Normal(loc: torch.Size([256, 631, 5, 8]), scale: torch.Size([256, 631, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:24:07,102 - Restoring model from epoch 98
+2024-05-07 22:24:17,239 - Exception occurred at epoch 99. Expected parameter loc (Tensor of shape (256, 659, 5, 8)) of distribution Normal(loc: torch.Size([256, 659, 5, 8]), scale: torch.Size([256, 659, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:24:17,239 - Restoring model from epoch 99
+2024-05-07 22:24:30,612 - Epoch [90/250], Loss: -24.1192 (-24.2441, 0.1250, 0.0000)
+2024-05-07 22:24:30,612 -      ETA: 00:01:25.61
+2024-05-07 22:24:43,968 - Epoch [95/250], Loss: -24.7929 (-24.9130, 0.1201, 0.0000)
+2024-05-07 22:24:43,968 -      ETA: 00:01:22.82
+2024-05-07 22:24:46,126 - Exception occurred at epoch 96. Expected parameter loc (Tensor of shape (256, 631, 5, 8)) of distribution Normal(loc: torch.Size([256, 631, 5, 8]), scale: torch.Size([256, 631, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:24:46,126 - Restoring model from epoch 96
+2024-05-07 22:24:46,521 - Exception occurred at epoch 96. Expected parameter loc (Tensor of shape (256, 616, 5, 8)) of distribution Normal(loc: torch.Size([256, 616, 5, 8]), scale: torch.Size([256, 616, 5, 8])) to satisfy the constraint Real(), but found invalid values:
+tensor([[[[nan, nan, nan,  ..., nan, nan, nan],
+          [nan, nan, nan,  ..., nan, na
+2024-05-07 22:24:46,521 - Restoring model from epoch 96
