@@ -4,7 +4,7 @@
 #SBATCH --constraint=high-capacity,11GB
 #SBATCH --mem=11GB
 #SBATCH -t 3:00:00          # total run time limit (HH:MM:SS)
-#SBATCH --array=239
+#SBATCH --array=0-239
 #SBATCH --output /om2/user/zaho/flappydream/reports/slurm-%A_%a.out # STDOUT
 export PATH="/om2/user/zaho/anaconda3/bin:$PATH"
 
