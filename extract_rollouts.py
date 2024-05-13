@@ -81,7 +81,5 @@ def extract_rollouts(N_rollouts, player_type, filename=None, dqn_sudden_death_p=
 
 
 if __name__ == "__main__":
-    # for extraction_id in range(1, 4):
-    #     extract_rollouts(config.rollouts_dqn_n, "dqn", verbose=True, save_pixel_data=True, extraction_id=extraction_id)
-    extract_rollouts(config.rollouts_dqn_n, "dqn", verbose=True, save_pixel_data=False, extraction_id=5)
-    extract_rollouts(config.rollouts_random_n, "random", verbose=True, save_pixel_data=False, extraction_id=5)
+    for extraction_id in range(5):
+        extract_rollouts(config.rollouts_dqn_n, "dqn", verbose=True, save_pixel_data=True, extraction_id=extraction_id)

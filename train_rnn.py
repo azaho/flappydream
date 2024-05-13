@@ -27,7 +27,7 @@ def load_data(filename_vae_latents, filename_environment_vars, batch_size=512, t
     # Load data from files
     z = np.load(filename_vae_latents)
     mean_store = torch.tensor(z['mean'])
-    sigma_store = torch.tensor(z['log_var'])
+    sigma_store = torch.tensor(z['log_var'] if 'log_var' in z else z['sigma'])
     env_meta = np.load(filename_environment_vars)
     state_vars = torch.tensor(env_meta['state_vars_store'])
     end_flag_store = torch.tensor(env_meta['end_flag_store'])
@@ -225,7 +225,7 @@ def train_rnn(model, training_data, n_epochs, optimizer, save_every_epochs=50, v
                   .format(epoch+1, n_epochs, loss.item(), loss_mdn.item(), loss_ef.item(), loss_sv.item()))
             logging.info('     ETA: {:0>2}:{:0>2}:{:05.2f}'.format(int(hours), int(minutes), seconds))
             np.savez_compressed(f"{save_folder}/rnn{rnn_id}/rnn_losses.npz", losses_store=losses_store) # save losses more often
-        if (epoch+1) % save_every_epochs == 0 or (epoch+1)==n_epochs:
+        if (epoch+1) % save_every_epochs == 0 or (epoch+1)==n_epochs or ((epoch+1) in [10, 20, 30, 40]):
             torch.save(model.state_dict(), f"{save_folder}/rnn{rnn_id}/rnn_model_epoch{epoch+1}.pt")
             torch.save(optimizer.state_dict(), f"{save_folder}/rnn{rnn_id}/rnn_optimizer_epoch{epoch+1}.pt")
             np.savez_compressed(f"{save_folder}/rnn{rnn_id}/rnn_losses.npz", losses_store=losses_store)

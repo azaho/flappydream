@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH -n 1                # node count
 #SBATCH --gres=gpu:1
-#SBATCH --constraint=high-capacity,11GB
+#SBATCH --constraint=high-capacity
 #SBATCH --mem=11GB
 #SBATCH -t 3:00:00          # total run time limit (HH:MM:SS)
 #SBATCH --array=0-119

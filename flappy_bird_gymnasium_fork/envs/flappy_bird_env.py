@@ -650,56 +650,6 @@ class FlappyBirdEnv(gymnasium.Env):
                 PLAYER_PRIVATE_ZONE * 2 + PLAYER_HEIGHT,
             )
             shape_surf = pygame.Surface(target_rect.size, pygame.SRCALPHA)
-            pygame.draw.circle(
-                shape_surf,
-                "blue",
-                (
-                    PLAYER_PRIVATE_ZONE + PLAYER_WIDTH,
-                    PLAYER_PRIVATE_ZONE + (PLAYER_HEIGHT / 2),
-                ),
-                PLAYER_PRIVATE_ZONE,
-                1,
-                draw_top_left=False,
-                draw_top_right=True,
-                draw_bottom_left=False,
-                draw_bottom_right=True,
-            )
-            pygame.draw.circle(
-                shape_surf,
-                "blue",
-                (PLAYER_PRIVATE_ZONE, PLAYER_PRIVATE_ZONE + (PLAYER_HEIGHT / 2)),
-                PLAYER_PRIVATE_ZONE,
-                1,
-                draw_top_left=True,
-                draw_top_right=False,
-                draw_bottom_left=True,
-                draw_bottom_right=False,
-            )
-            pygame.draw.circle(
-                shape_surf,
-                "blue",
-                (PLAYER_PRIVATE_ZONE + (PLAYER_WIDTH / 2), PLAYER_PRIVATE_ZONE),
-                PLAYER_PRIVATE_ZONE,
-                1,
-                draw_top_left=True,
-                draw_top_right=True,
-                draw_bottom_left=False,
-                draw_bottom_right=False,
-            )
-            pygame.draw.circle(
-                shape_surf,
-                "blue",
-                (
-                    PLAYER_PRIVATE_ZONE + (PLAYER_WIDTH / 2),
-                    PLAYER_PRIVATE_ZONE + PLAYER_HEIGHT,
-                ),
-                PLAYER_PRIVATE_ZONE,
-                1,
-                draw_top_left=False,
-                draw_top_right=False,
-                draw_bottom_left=True,
-                draw_bottom_right=True,
-            )
             rotated_surf = pygame.transform.rotate(shape_surf, visible_rot)
             self._surface.blit(
                 rotated_surf, rotated_surf.get_rect(center=target_rect.center)

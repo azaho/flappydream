@@ -5,35 +5,23 @@ import time
 import pygame
 import vae
 import torch
+import config
 from flappy_bird_gymnasium.tests.dueling import DuelingDQN
+
 env = gymnasium.make("FlappyBirdFork-v0", render_mode="rgb_array")
-
-latent_dim = 12
-
-class MyCustomWrapper(gymnasium.Wrapper):
-    def __init__(self, env):
-        super().__init__(env)
-
-    def render(self):
-        arr = super().render()
-        #if arr is not None: print(arr.shape)
-        return arr
-env = MyCustomWrapper(env)
 env = gymnasium.wrappers.HumanRendering(env)
-#env = gymnasium.wrappers.RecordVideo(env, video_folder="videos/")
-
 
 q_model = DuelingDQN(env.action_space.n)
 q_model.build((None, 12))
-#q_model.load_weights("flappy_bird_gymnasium_fork/assets/model/model.h5")
+q_model.load_weights("flappy_bird_gymnasium_fork/dqn_model.h5")
 
 player_type = "random"
 player_type = "human"
 player_type = "dqn"
 
-device = torch.device("cpu")
-model = vae.VAE(device, latent_dim=latent_dim).to(device)
-model.load_state_dict(torch.load(f"vae_model_{latent_dim}dimlatent.pt", map_location=torch.device('cpu')))
+latent_dim = config.vae_latent_dim
+model = vae.VAE(latent_dim=latent_dim).to(config.device)
+model.load_state_dict(torch.load(f"data/vae_model_{latent_dim}dimlatent.pt", map_location=config.device))
 def vae_function(x):
     x_hat, mean, log_var = model(torch.tensor(x, dtype=torch.float32))
     x_hat = x_hat.cpu().detach().numpy()

@@ -19,7 +19,7 @@ class VAE(nn.Module):
 
         # latent mean and variance
         self.mean_layer = nn.Linear(hidden_dim, latent_dim)
-        self.sigma_layer = nn.Linear(hidden_dim, latent_dim)
+        self.logvar_layer = nn.Linear(hidden_dim, latent_dim) # not actually log var! instead, it's just sigma
 
         # decoder
         self.decoder = nn.Sequential(
@@ -33,7 +33,7 @@ class VAE(nn.Module):
 
     def encode(self, x):
         x = self.encoder(x)
-        mean, sigma = self.mean_layer(x), self.sigma_layer(x)
+        mean, sigma = self.mean_layer(x), self.logvar_layer(x)
         return mean, sigma
 
     def reparameterization(self, mean, sigma):
