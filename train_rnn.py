@@ -253,7 +253,7 @@ if __name__ == "__main__":
     parser.add_argument('--max_gradient_norm', '-mgn', type=float, default=100.0,
                         help='Maximum gradient norm for gradient clipping')
     parser.add_argument('--lr', '-lr', type=float, default=0.001, help='Learning rate')
-    parser.add_argument('--random_index', '-r', type=int, default=0, help='Random seed index')
+    parser.add_argument('--random_index', '-r', type=str, default="0", help='Random seed index')
     parser.add_argument('--lambda_sv', '-lsv', type=float, default=10.0, help='Lambda value for state variables')
     parser.add_argument('--enforce_cuda', '-ecuda', action='store_true', help='Exit if cuda is not available')
 
