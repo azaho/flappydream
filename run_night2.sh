@@ -9,7 +9,7 @@
 export PATH="/om2/user/zaho/anaconda3/bin:$PATH"
 
 A=$((SLURM_ARRAY_TASK_ID%2))
-B=$(((SLURM_ARRAY_TASK_ID/2)%40)+100)
+B=$(((SLURM_ARRAY_TASK_ID/2)%40))
 C=$(((SLURM_ARRAY_TASK_ID/2)/40))
 arrA=("0" "64")
 arrC=(64 128 256)
@@ -18,4 +18,4 @@ C=${arrC[$C]}
 
 echo $A $B $C
 nvidia-smi
-python train_rnn.py -t 40 -lr 0.001 -ecuda -lsv $A -sv 9 10 11 -nh $C -r $B
+python train_rnn.py -t 40 -lr 0.001 -ecuda -lsv $A -sv 9 10 11 -nh $C -r n$B
